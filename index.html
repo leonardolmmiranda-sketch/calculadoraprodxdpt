@@ -8,17 +8,27 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --yellow:#FFE600;--yellow-dark:#E6CF00;--yellow-light:#FFFBE6;
-  --blue:#3483FA;--blue-dark:#2968C8;--blue-deeper:#1A4F9E;
-  --blue-light:#EBF3FF;--blue-mid:#D4E8FF;
-  --dark:#1A1A2E;--text:#333;--gray:#717171;
-  --gray-light:#F5F5F5;--border:#EBEBEB;--white:#fff;
-  --green:#00A650;--green-light:#E8F8EF;
-  --orange:#FF7733;--orange-light:#FFF0E8;
+  --yellow:#FFF8DC;
+  --yellow-mid:#F5E97A;
+  --yellow-dark:#E8D98A;
+  --yellow-light:#FFFDF0;
+  --blue:#2C3E6B;
+  --blue-dark:#1E2D52;
+  --blue-deeper:#15203D;
+  --blue-light:#EEF2FF;
+  --blue-mid:#C5CFEA;
+  --dark:#1A1A2E;
+  --text:#333;
+  --gray:#717171;
+  --gray-light:#F5F5F5;
+  --border:#EBEBEB;
+  --white:#fff;
+  --green:#2E7D5E;
+  --green-light:#E8F5EE;
+  --orange:#C4631A;
+  --orange-light:#FDF0E6;
 }
-body{font-family:'Inter',sans-serif;background:#F2F2F2;color:var(--text);min-height:100vh}
-
-/* HEADER */
+body{font-family:'Inter',sans-serif;background:#EDEAE3;color:var(--text);min-height:100vh}
 header{background:var(--yellow);height:60px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--yellow-dark)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo-mark{width:36px;height:36px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center}
@@ -28,23 +38,17 @@ header{background:var(--yellow);height:60px;padding:0 2rem;display:flex;align-it
 .header-right{display:flex;align-items:center;gap:8px}
 .btn-voltar,.lang-link{font-size:12px;font-weight:600;color:var(--blue-deeper);text-decoration:none;background:rgba(255,255,255,0.7);padding:4px 12px;border-radius:20px;border:1px solid var(--yellow-dark);transition:background .15s}
 .btn-voltar:hover,.lang-link:hover{background:white}
-.badge{background:var(--blue);color:var(--yellow);font-family:'Raleway',sans-serif;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px}
-
-/* HERO */
+.badge{background:var(--blue);color:var(--yellow-mid);font-family:'Raleway',sans-serif;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px}
 .hero{background:var(--yellow);padding:2.5rem 2rem 2rem;text-align:center;border-bottom:2px solid var(--yellow-dark)}
-.hero-tag{display:inline-block;background:var(--blue);color:var(--yellow);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:14px}
+.hero-tag{display:inline-block;background:var(--blue);color:var(--yellow-mid);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:14px}
 .hero-title-wrap{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px;flex-wrap:wrap}
 .hero-ml-icon{width:46px;height:46px;background:var(--blue);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .hero-ml-icon svg{width:26px;height:26px}
 .hero h1{font-family:'Raleway',sans-serif;font-size:clamp(22px,3.5vw,36px);font-weight:800;color:var(--blue-deeper);letter-spacing:-0.8px;line-height:1.2}
 .hero p{font-size:14px;color:var(--blue-dark);opacity:.8;max-width:580px;margin:8px auto 0;line-height:1.6}
-
-/* LAYOUT */
 .container{max-width:1160px;margin:0 auto;padding:2rem 1.5rem 4rem}
 .layout{display:grid;grid-template-columns:1fr 400px;gap:20px;align-items:start}
 @media(max-width:900px){.layout{grid-template-columns:1fr}}
-
-/* CARDS */
 .card{background:var(--white);border-radius:12px;border:1px solid var(--border)}
 .card+.card{margin-top:16px}
 .card-header{padding:1rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
@@ -58,22 +62,17 @@ header{background:var(--yellow);height:60px;padding:0 2rem;display:flex;align-it
 .field:last-child{margin-bottom:0}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .field-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-
 label{display:block;font-size:12px;font-weight:500;color:var(--text);margin-bottom:4px}
 label .hint{font-weight:400;color:var(--gray)}
 .field-comment{font-size:11px;color:var(--gray);line-height:1.5;margin-top:4px;background:var(--gray-light);border-radius:6px;padding:5px 8px;border-left:3px solid var(--blue-mid)}
-
 input[type="number"],select{width:100%;height:38px;border:1.5px solid var(--border);border-radius:8px;padding:0 10px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);background:var(--white);outline:none;transition:border-color .15s;-webkit-appearance:none;appearance:none}
-input[type="number"]:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(52,131,250,.1)}
+input[type="number"]:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(44,62,107,.1)}
 .select-wrap{position:relative}
 .select-wrap::after{content:'';position:absolute;right:10px;top:50%;transform:translateY(-50%);width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid var(--gray);pointer-events:none}
-
 .range-row{display:flex;align-items:center;gap:10px}
 input[type="range"]{flex:1;height:4px;-webkit-appearance:none;background:var(--border);border-radius:2px;outline:none}
 input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--blue);cursor:pointer;border:2px solid white;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 .range-val{font-size:13px;font-weight:600;color:var(--blue);min-width:38px;text-align:right}
-
-/* SUBPROCESS SELECTOR — with illustration */
 .sub-selector{display:flex;flex-direction:column;gap:8px}
 .sub-block{border:1.5px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s}
 .sub-block:focus-within{border-color:var(--blue)}
@@ -87,26 +86,20 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;hei
 .sub-illus-prod{font-family:'Raleway',sans-serif;font-size:20px;font-weight:800;color:var(--blue)}
 .sub-illus-unit{font-size:10px;color:var(--gray);letter-spacing:.5px}
 .sub-illus-desc{font-size:11px;color:var(--gray);margin-top:2px;line-height:1.4}
-
 .btn-calc{width:100%;height:48px;background:var(--blue);color:white;border:none;border-radius:10px;font-family:'Raleway',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .15s,transform .1s;margin-top:1.25rem}
 .btn-calc:hover{background:var(--blue-dark)}
 .btn-calc:active{transform:scale(0.99)}
-
-/* RESULTS */
 .results-sticky{position:sticky;top:76px}
 .result-header{background:var(--blue);padding:1.25rem 1.5rem;border-radius:12px 12px 0 0}
-.result-header .r-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:4px}
-.result-header .r-title{font-family:'Raleway',sans-serif;font-size:15px;font-weight:700;color:var(--yellow)}
-
-/* ── RESULT PANEL ── */
+.result-header .r-label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px}
+.result-header .r-title{font-family:'Raleway',sans-serif;font-size:15px;font-weight:700;color:var(--yellow-mid)}
 .res-kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:.9rem 1.25rem;border-bottom:1px solid var(--border)}
 .kpi{background:var(--gray-light);border-radius:8px;padding:9px 10px;text-align:center}
 .kpi.hl{background:var(--blue)}
 .kpi-val{font-family:'Raleway',sans-serif;font-size:22px;font-weight:800;color:var(--blue);line-height:1}
-.kpi.hl .kpi-val{color:var(--yellow)}
+.kpi.hl .kpi-val{color:var(--yellow-mid)}
 .kpi-lbl{font-size:9px;color:var(--gray);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
-.kpi.hl .kpi-lbl{color:rgba(255,255,255,.65)}
-
+.kpi.hl .kpi-lbl{color:rgba(255,255,255,.6)}
 .res-table-wrap{padding:.75rem 1.25rem;overflow-x:auto}
 .res-table{width:100%;border-collapse:collapse;font-size:11px}
 .res-table th{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);padding:5px 6px;border-bottom:2px solid var(--border);text-align:right;white-space:nowrap}
@@ -118,27 +111,17 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;hei
 .res-table tr.group-hdr td{background:var(--gray-light);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);padding:5px 6px;font-family:'Inter',sans-serif}
 .res-table tr:hover td{background:var(--blue-light)}
 .res-table tr.group-hdr:hover td{background:var(--gray-light)}
-
-/* ocupação colorida */
 .ocp-ok{color:var(--green)}
 .ocp-med{color:var(--blue)}
 .ocp-high{color:var(--orange)}
 .ocp-over{color:#C0392B;font-style:italic}
-
-/* barra de ocupação inline */
 .bar-cell{position:relative;min-width:60px}
 .bar-bg{position:absolute;left:0;top:50%;transform:translateY(-50%);height:4px;width:100%;background:var(--border);border-radius:2px}
 .bar-fill{position:absolute;left:0;top:50%;transform:translateY(-50%);height:4px;border-radius:2px;transition:width .3s}
 .bar-txt{position:relative;z-index:1;font-size:11px;font-weight:700}
-
-.proc-divider{height:1px;background:var(--border);margin:2px 0}
-.proc-group-lbl{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);padding:4px 2px 0}
-.ocup-pill{font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;background:var(--gray-light);border:1px solid var(--border)}
-
 .empty-state{padding:2.5rem 1.5rem;text-align:center;color:var(--gray)}
 .empty-icon{font-size:32px;margin-bottom:10px}
 .empty-state p{font-size:13px;line-height:1.6}
-
 .premissas-wrap{margin-top:16px}
 .premissas-btn{width:100%;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:13px;font-weight:500;color:var(--text);font-family:'Inter',sans-serif;transition:background .15s}
 .premissas-btn:hover{background:var(--gray-light)}
@@ -147,7 +130,6 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;hei
 .prem-item{background:var(--gray-light);border-radius:6px;padding:8px 10px}
 .prem-key{font-size:10px;color:var(--gray);margin-bottom:2px}
 .prem-val{font-size:13px;font-weight:600;color:var(--dark)}
-
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .animate{animation:fadeUp .25s ease forwards}
 </style>
@@ -157,7 +139,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;hei
 <header>
   <a class="logo" href="#">
     <div class="logo-mark">
-      <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="6.5" r="3.5" fill="#FFE600"/><path d="M2.5 17.5c0-4.142 3.358-7.5 7.5-7.5s7.5 3.358 7.5 7.5" stroke="#FFE600" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="6.5" r="3.5" fill="#F5E97A"/><path d="M2.5 17.5c0-4.142 3.358-7.5 7.5-7.5s7.5 3.358 7.5 7.5" stroke="#F5E97A" stroke-width="2.2" stroke-linecap="round"/></svg>
     </div>
     <div><div class="logo-name">Mercado Libre</div><div class="logo-sub">Ferramentas Internas</div></div>
   </a>
@@ -171,7 +153,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;hei
 <div class="hero">
   <div class="hero-tag">Produtividade Operacional</div>
   <div class="hero-title-wrap">
-    <div class="hero-ml-icon"><svg viewBox="0 0 26 26" fill="none"><circle cx="13" cy="8" r="4.5" fill="#FFE600"/><path d="M2 24c0-6.075 4.925-11 11-11s11 4.925 11 11" stroke="#FFE600" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+    <div class="hero-ml-icon"><svg viewBox="0 0 26 26" fill="none"><circle cx="13" cy="8" r="4.5" fill="#F5E97A"/><path d="M2 24c0-6.075 4.925-11 11-11s11 4.925 11 11" stroke="#F5E97A" stroke-width="2.5" stroke-linecap="round"/></svg></div>
     <h1>Calculadora de Produtividade XD</h1>
   </div>
   <p>Passo 1: preencha os dados do ciclo. Passo 2: selecione o modelo de processo de cada subprocesso. A calculadora retorna a produtividade esperada (pcts/h por posto) com base nas capacidades MTM.</p>
@@ -181,7 +163,6 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;hei
 <div class="layout">
 <div>
 
-<!-- PASSO 1: DADOS DO PROCESSO -->
 <div class="card">
   <div class="card-header"><div class="card-icon">📋</div><div><h2>Passo 1 — Dados do processo</h2><p>Preencha as células em azul (equivalente à Coluna B do sheet)</p></div></div>
   <div class="card-body">
@@ -237,11 +218,9 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;hei
       <div class="field"><label>% Granel no veículo</label><div class="range-row"><input type="range" id="pctGranelS" min="0" max="100" value="30" step="5" oninput="syncR('pctGranelS','pctGranel','pctGranelV','%')"><span class="range-val" id="pctGranelV">30%</span></div><input type="hidden" id="pctGranel" value="30"></div>
       <div class="field"><label>% Pacotes em saca</label><div class="range-row"><input type="range" id="pctSacaS" min="0" max="50" value="10" step="5" oninput="syncR('pctSacaS','pctSaca','pctSacaV','%')"><span class="range-val" id="pctSacaV">10%</span></div><input type="hidden" id="pctSaca" value="10"></div>
     </div>
-  
   </div>
 </div>
 
-<!-- PASSO 2: SELEÇÃO DE PROCESSOS -->
 <div class="card">
   <div class="card-header"><div class="card-icon">🔧</div><div><h2>Passo 2 — Selecione os modelos de processo</h2><p>Cada seleção mostra a produtividade MTM e uma ilustração do método</p></div></div>
   <div class="card-body">
@@ -468,7 +447,6 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;hei
       </div>
     </div>
 
-  
   </div>
 </div>
 
@@ -494,9 +472,8 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;hei
   </div>
 </div>
 
-</div><!-- end left col -->
+</div>
 
-<!-- RESULTS -->
 <div class="results-sticky">
   <div class="card">
     <div class="result-header">
@@ -509,375 +486,273 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;hei
   </div>
 </div>
 
-</div><!-- end layout -->
-</div><!-- end container -->
+</div>
+</div>
 
 <script>
-// ── CAP_MAP: capacidades por select ─────────────────────────────────────
 var CAP_MAP = {
-  tipoStageIn:{
-    pal_eletrica_triple:8108, pal_eletrica_simples:10271, pal_eletrica_caminha:6783,
-    tugger:5600, pal_manual_dupla:8121, pal_manual_simples:6258,
-    backer_leve:6472, backer_pesado:5269
-  },
-  tipoInhub:{ descarregar_induzir:407, bipear_induzir_sep:655, bipear_induzir_ale:736 },
-  tipoIndGM:{
-    flow_aleatorio:747, conveyor:858, flow_separando:544,
-    raio_x:559, sem_conveyor:397, pallet_1rep:226,
-    motor_1rep:330, motor_2rep:194, motor_3rep:171
-  },
-  tipoPescaGM:{
-    flow_duplo_conv:538, backer_conv:395, fingers_conv:493, fingers2_conv:433,
-    flow2x2_sc:195, backer_sc:241, fingers_sc:234, flow3x08_sc:238
-  },
-  tipoArmadoGM:{
-    flow2x2_4g:360, flow2x2_6g:345, flow2x3_8g:343, flow2x3_10g:317,
-    flow2x2_4m:391, flow2x2_6m:374, flow2x3_8m:383, flow2x3_10m:329,
-    flow3x088_pallet:319, sorter_gaylord:414, bipear_baker:533, baker_pallet:419,
-    flow2x2_4sacas:278, flow2x2_6sacas:287, flow2x3_8sacas:269, flow2x3_10sacas:271
-  },
-  tipoGoleiro:{ goleiro:1175, reinducao_conv:569 },
-  tipoSepL:{ pallet:264, backer:300 },
-  tipoIndL:{ backer_1rep:422, pallet_1rep:226, motor_1rep:330, motor_2rep:194 },
-  tipoPescaL:{ flow_motor_1c:415, flow_manual_1c:154, flow_manual_2c:109 },
-  tipoOv:{ patin:609 },
-  tipoLiv:{ inhub_livianos:411, inhub_tarjetas:7850 },
-  tipoArmadoLiv:{ armado_livianos:546 },
-  tipoStageOut:{
-    pal_manual_dupla:2585, pal_manual_simples:1797,
-    pal_eletrica_triple:6408, pal_eletrica_simples:2992, pal_eletrica_caminha:1926
-  },
-  tipoApil:{ transpaletera:5708, autoelevador:7119, pallet_high_abaixo:350, pallet_high_cima:531 },
-  tipoCarga:{ eletrica_emb:64.8, eletrica_des:51.3, manual:32.5, auto_emb:47.7, auto_des:41.9 }
+  tipoStageIn:{pal_eletrica_triple:8108,pal_eletrica_simples:10271,pal_eletrica_caminha:6783,tugger:5600,pal_manual_dupla:8121,pal_manual_simples:6258,backer_leve:6472,backer_pesado:5269},
+  tipoInhub:{descarregar_induzir:407,bipear_induzir_sep:655,bipear_induzir_ale:736},
+  tipoIndGM:{flow_aleatorio:747,conveyor:858,flow_separando:544,raio_x:559,sem_conveyor:397,pallet_1rep:226,motor_1rep:330,motor_2rep:194,motor_3rep:171},
+  tipoPescaGM:{flow_duplo_conv:538,backer_conv:395,fingers_conv:493,fingers2_conv:433,flow2x2_sc:195,backer_sc:241,fingers_sc:234,flow3x08_sc:238},
+  tipoArmadoGM:{flow2x2_4g:360,flow2x2_6g:345,flow2x3_8g:343,flow2x3_10g:317,flow2x2_4m:391,flow2x2_6m:374,flow2x3_8m:383,flow2x3_10m:329,flow3x088_pallet:319,sorter_gaylord:414,bipear_baker:533,baker_pallet:419,flow2x2_4sacas:278,flow2x2_6sacas:287,flow2x3_8sacas:269,flow2x3_10sacas:271},
+  tipoGoleiro:{goleiro:1175,reinducao_conv:569},
+  tipoSepL:{pallet:264,backer:300},
+  tipoIndL:{backer_1rep:422,pallet_1rep:226,motor_1rep:330,motor_2rep:194},
+  tipoPescaL:{flow_motor_1c:415,flow_manual_1c:154,flow_manual_2c:109},
+  tipoOv:{patin:609},
+  tipoLiv:{inhub_livianos:411,inhub_tarjetas:7850},
+  tipoArmadoLiv:{armado_livianos:546},
+  tipoStageOut:{pal_manual_dupla:2585,pal_manual_simples:1797,pal_eletrica_triple:6408,pal_eletrica_simples:2992,pal_eletrica_caminha:1926},
+  tipoApil:{transpaletera:5708,autoelevador:7119,pallet_high_abaixo:350,pallet_high_cima:531},
+  tipoCarga:{eletrica_emb:64.8,eletrica_des:51.3,manual:32.5,auto_emb:47.7,auto_des:41.9}
 };
 
-// ── ILLUS_MAP: select id → prefix ────────────────────────────────────────
 var ILLUS_MAP = {
-  tipoStageIn:'stageIn', tipoInhub:'inhub', tipoIndGM:'indGM',
-  tipoPescaGM:'pescaGM', tipoArmadoGM:'armadoGM', tipoGoleiro:'goleiro',
-  tipoSepL:'sepL', tipoIndL:'indL', tipoPescaL:'pescaL',
-  tipoOv:'ov', tipoLiv:'liv', tipoArmadoLiv:'armadoLiv',
-  tipoStageOut:'stageOut', tipoApil:'apil', tipoCarga:'carga'
+  tipoStageIn:'stageIn',tipoInhub:'inhub',tipoIndGM:'indGM',
+  tipoPescaGM:'pescaGM',tipoArmadoGM:'armadoGM',tipoGoleiro:'goleiro',
+  tipoSepL:'sepL',tipoIndL:'indL',tipoPescaL:'pescaL',
+  tipoOv:'ov',tipoLiv:'liv',tipoArmadoLiv:'armadoLiv',
+  tipoStageOut:'stageOut',tipoApil:'apil',tipoCarga:'carga'
 };
 
-// ── SVG ILLUSTRATIONS ──────────────────────────────────────────────────────
-function mkSVG(elements, label) {
-  return '<svg width="120" height="64" viewBox="0 0 120 64" fill="none">' + elements +
-    '<text x="60" y="60" text-anchor="middle" font-size="9" fill="#717171" font-family="Inter">' + label + '</text></svg>';
+function mkSVG(elements,label){return '<svg width="120" height="64" viewBox="0 0 120 64" fill="none">'+elements+'<text x="60" y="60" text-anchor="middle" font-size="9" fill="#717171" font-family="Inter">'+label+'</text></svg>';}
+
+var ILLUS={};
+ILLUS['stageIn_pal_eletrica_triple']={prod:8108,unit:'pcts/h',desc:'Paletera Elétrica TRIPLE parada — 3 bakers simultaneamente',svg:mkSVG('<rect x="8" y="18" width="16" height="14" rx="2" fill="#F5E97A" stroke="#E8D98A"/><rect x="28" y="18" width="16" height="14" rx="2" fill="#F5E97A" stroke="#E8D98A"/><rect x="48" y="18" width="16" height="14" rx="2" fill="#F5E97A" stroke="#E8D98A"/><rect x="34" y="32" width="36" height="8" rx="2" fill="#2C3E6B" opacity=".4"/><circle cx="36" cy="44" r="4" fill="#333"/><circle cx="68" cy="44" r="4" fill="#333"/><circle cx="52" cy="10" r="5" fill="#2E7D5E" opacity=".8"/><path d="M49 10 L51 12 L55 8" stroke="white" stroke-width="1.5" stroke-linecap="round"/>','Pal. Elét. TRIPLE')};
+ILLUS['stageIn_pal_eletrica_simples']={prod:10271,unit:'pcts/h',desc:'Paletera Elétrica SIMPLES parada',svg:mkSVG('<rect x="30" y="16" width="24" height="16" rx="2" fill="#F5E97A" stroke="#E8D98A"/><rect x="38" y="32" width="36" height="8" rx="2" fill="#2C3E6B" opacity=".4"/><circle cx="40" cy="44" r="4" fill="#333"/><circle cx="72" cy="44" r="4" fill="#333"/>','Pal. Elét. SIMPLES')};
+ILLUS['stageIn_pal_eletrica_caminha']={prod:6783,unit:'pcts/h',desc:'Paletera Elétrica — operador caminha junto',svg:mkSVG('<rect x="25" y="18" width="20" height="14" rx="2" fill="#F5E97A" stroke="#E8D98A"/><rect x="35" y="32" width="28" height="8" rx="2" fill="#2C3E6B" opacity=".3"/><circle cx="37" cy="44" r="4" fill="#333"/><circle cx="61" cy="44" r="4" fill="#333"/>','Pal. Elét. Caminha')};
+ILLUS['stageIn_tugger']={prod:5600,unit:'pcts/h',desc:'Tugger/Rebocador — puxa comboio de bakers',svg:mkSVG('<rect x="5" y="28" width="110" height="6" rx="1" fill="#EBEBEB"/><rect x="8" y="22" width="14" height="10" rx="2" fill="#F5E97A" stroke="#E8D98A"/><rect x="24" y="22" width="12" height="10" rx="2" fill="#2C3E6B" opacity=".3"/><rect x="38" y="22" width="12" height="10" rx="2" fill="#2C3E6B" opacity=".3"/><rect x="52" y="22" width="12" height="10" rx="2" fill="#2C3E6B" opacity=".3"/><rect x="66" y="22" width="12" height="10" rx="2" fill="#2C3E6B" opacity=".3"/>','Tugger — Comboio')};
+ILLUS['stageIn_pal_manual_dupla']={prod:8121,unit:'pcts/h',desc:'Paletera Manual DUPLA >500kg',svg:mkSVG('<rect x="15" y="18" width="22" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="40" y="18" width="22" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="40" y="32" width="5" height="16" fill="#717171"/><rect x="35" y="38" width="15" height="4" rx="1" fill="#717171"/>','Pal. Manual DUPLA')};
+ILLUS['stageIn_pal_manual_simples']={prod:6258,unit:'pcts/h',desc:'Paletera Manual SIMPLES <500kg',svg:mkSVG('<rect x="30" y="20" width="24" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="58" y="34" width="5" height="14" fill="#717171"/><rect x="53" y="40" width="15" height="4" rx="1" fill="#717171"/>','Pal. Manual SIMPLES')};
+ILLUS['stageIn_backer_leve']={prod:6472,unit:'pcts/h',desc:'Backer <200kg',svg:mkSVG('<rect x="25" y="14" width="18" height="28" rx="2" fill="#EEF2FF" stroke="#2C3E6B" stroke-width="1.5"/><rect x="27" y="16" width="7" height="7" rx="1" fill="#F5E97A"/><rect x="27" y="26" width="7" height="7" rx="1" fill="#F5E97A"/><rect x="55" y="14" width="18" height="28" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/>','Backer &lt;200kg')};
+ILLUS['stageIn_backer_pesado']={prod:5269,unit:'pcts/h',desc:'Backer >200kg',svg:mkSVG('<rect x="20" y="12" width="22" height="32" rx="2" fill="#FDF0E6" stroke="#C4631A" stroke-width="1.5"/><rect x="55" y="12" width="22" height="32" rx="2" fill="#FDF0E6" stroke="#C4631A"/>','Backer &gt;200kg')};
+ILLUS['inhub_descarregar_induzir']={prod:407,unit:'pcts/h',desc:'Descarregar e Induzir — T.ciclo ~8,84s',svg:mkSVG('<rect x="8" y="20" width="20" height="26" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="10" y="22" width="8" height="8" rx="1" fill="#F5E97A"/><rect x="32" y="28" width="50" height="6" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B" stroke-width="1.5"/><rect x="36" y="22" width="9" height="8" rx="1" fill="#F5E97A"/><rect x="48" y="22" width="9" height="8" rx="1" fill="#F5E97A"/>','Descarregar e Induzir')};
+ILLUS['inhub_bipear_induzir_sep']={prod:655,unit:'pcts/h',desc:'Bipear e Induzir Separando — T.ciclo ~5,50s',svg:mkSVG('<rect x="8" y="20" width="20" height="26" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="32" y="28" width="50" height="6" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><circle cx="55" cy="20" r="5" fill="#F5F5F5" stroke="#717171"/><path d="M55 25 L55 28" stroke="#2C3E6B" stroke-width="1.5"/>','Bipear e Induzir Sep.')};
+ILLUS['inhub_bipear_induzir_ale']={prod:736,unit:'pcts/h',desc:'Bipear e Induzir Aleatório — T.ciclo ~4,89s',svg:mkSVG('<rect x="8" y="20" width="20" height="26" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="32" y="28" width="50" height="6" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><circle cx="55" cy="20" r="5" fill="#F5F5F5" stroke="#717171"/><path d="M45 34 Q50 42 55 34 Q60 42 65 34" fill="none" stroke="#2C3E6B" stroke-width="1.5" stroke-dasharray="3,2"/>','Bipear e Induzir Alea.')};
+ILLUS['indGM_flow_aleatorio']={prod:747,unit:'pcts/h/posto',desc:'Flow Rack Aleatório — T.ciclo 4,82s',svg:mkSVG('<rect x="10" y="28" width="70" height="6" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B" stroke-width="1.5"/><rect x="16" y="20" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><rect x="30" y="20" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><rect x="44" y="20" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><path d="M82 31 Q95 20 108 14" stroke="#2C3E6B" stroke-width="2" stroke-linecap="round"/><rect x="96" y="8" width="20" height="20" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/>','Flow Rack Aleatório')};
+ILLUS['indGM_conveyor']={prod:858,unit:'pcts/h/posto',desc:'Conveyor Backer 90° — T.ciclo 4,20s',svg:mkSVG('<rect x="10" y="28" width="80" height="6" rx="2" fill="#2C3E6B" opacity=".3" stroke="#2C3E6B" stroke-width="1.5"/><rect x="14" y="20" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><rect x="28" y="20" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><rect x="42" y="20" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><rect x="56" y="20" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><circle cx="10" cy="31" r="4" fill="#15203D"/><circle cx="90" cy="31" r="4" fill="#15203D"/>','Conveyor Backer 90°')};
+ILLUS['indGM_flow_separando']={prod:544,unit:'pcts/h/posto',desc:'Flow Separando de lado — T.ciclo 6,62s',svg:mkSVG('<rect x="10" y="28" width="70" height="6" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="14" y="20" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><rect x="30" y="20" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><rect x="85" y="8" width="20" height="20" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><path d="M80 28 L85 18" stroke="#2C3E6B" stroke-width="2"/>','Flow Separando')};
+ILLUS['indGM_raio_x']={prod:559,unit:'pcts/h/posto',desc:'Raio X + Backer 90° — T.ciclo 6,44s',svg:mkSVG('<rect x="10" y="28" width="60" height="6" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="14" y="20" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><rect x="75" y="14" width="30" height="18" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><text x="90" y="26" text-anchor="middle" font-size="9" fill="#2C3E6B" font-weight="bold">X</text><path d="M70 31 L75 22" stroke="#2C3E6B" stroke-width="2"/>','Raio X')};
+ILLUS['indGM_sem_conveyor']={prod:397,unit:'pcts/h/posto',desc:'Sem Conveyor — operador leva pacote ao BC',svg:mkSVG('<rect x="10" y="30" width="70" height="4" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="14" y="22" width="10" height="10" rx="1" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="30" y="22" width="10" height="10" rx="1" fill="#F5F5F5" stroke="#EBEBEB"/>','Sem Conveyor')};
+ILLUS['indGM_pallet_1rep']={prod:226,unit:'pcts/h/posto',desc:'Pallet 90° 1 rep/ilha',svg:mkSVG('<rect x="10" y="28" width="60" height="6" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="14" y="16" width="20" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="42" y="16" width="20" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/>','Pallet 1 rep/ilha')};
+ILLUS['indGM_motor_1rep']={prod:330,unit:'pcts/h/posto',desc:'Motorizado Pallet 1 rep/ilha',svg:mkSVG('<rect x="8" y="30" width="70" height="5" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="10" y="22" width="16" height="12" rx="2" fill="#2C3E6B" opacity=".3"/><rect x="30" y="22" width="16" height="12" rx="2" fill="#2C3E6B" opacity=".3"/>','Motor. Pallet 1 rep')};
+ILLUS['indGM_motor_2rep']={prod:194,unit:'pcts/h/posto',desc:'Motorizado Pallet 1 rep/2 ilhas',svg:mkSVG('<rect x="8" y="30" width="100" height="5" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="10" y="22" width="14" height="10" rx="2" fill="#2C3E6B" opacity=".3"/><rect x="28" y="22" width="14" height="10" rx="2" fill="#2C3E6B" opacity=".3"/><rect x="60" y="22" width="14" height="10" rx="2" fill="#2C3E6B" opacity=".3"/><rect x="78" y="22" width="14" height="10" rx="2" fill="#2C3E6B" opacity=".3"/>','Motor. 2 ilhas')};
+ILLUS['indGM_motor_3rep']={prod:171,unit:'pcts/h/posto',desc:'Motorizado Pallet 1 rep/3 ilhas',svg:mkSVG('<rect x="5" y="30" width="110" height="4" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="6" y="22" width="12" height="10" rx="2" fill="#2C3E6B" opacity=".3"/><rect x="22" y="22" width="12" height="10" rx="2" fill="#2C3E6B" opacity=".3"/><rect x="50" y="22" width="12" height="10" rx="2" fill="#2C3E6B" opacity=".3"/><rect x="66" y="22" width="12" height="10" rx="2" fill="#2C3E6B" opacity=".3"/>','Motor. 3 ilhas')};
+ILLUS['pescaGM_flow_duplo_conv']={prod:538,unit:'pcts/h/posto',desc:'Flow Duplo (2x3/2x2) + Conveyor — padrão XD',svg:mkSVG('<rect x="8" y="12" width="16" height="28" rx="2" fill="#EEF2FF" stroke="#2C3E6B" stroke-width="1.5"/><rect x="8" y="14" width="4" height="4" rx="1" fill="#F5E97A"/><rect x="14" y="14" width="4" height="4" rx="1" fill="#F5E97A"/><rect x="8" y="22" width="4" height="4" rx="1" fill="#F5E97A"/><rect x="14" y="22" width="4" height="4" rx="1" fill="#F5E97A"/><rect x="26" y="24" width="70" height="6" rx="2" fill="#2C3E6B" opacity=".25" stroke="#2C3E6B" stroke-width="1"/><rect x="40" y="12" width="16" height="28" rx="2" fill="#EEF2FF" stroke="#2C3E6B" stroke-width="1.5"/>','Flow Duplo + Conveyor')};
+ILLUS['pescaGM_backer_conv']={prod:395,unit:'pcts/h/posto',desc:'Backer 180° + Conveyor',svg:mkSVG('<rect x="10" y="26" width="90" height="5" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="14" y="14" width="14" height="14" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="16" y="16" width="5" height="5" rx="1" fill="#F5E97A"/>','Backer 180° + Conv.')};
+ILLUS['pescaGM_fingers_conv']={prod:493,unit:'pcts/h/posto',desc:'Fingers 90° + Conveyor',svg:mkSVG('<rect x="10" y="28" width="90" height="5" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><line x1="20" y1="16" x2="20" y2="28" stroke="#2C3E6B" stroke-width="2" stroke-linecap="round"/><line x1="35" y1="16" x2="35" y2="28" stroke="#2C3E6B" stroke-width="2" stroke-linecap="round"/><line x1="50" y1="16" x2="50" y2="28" stroke="#2C3E6B" stroke-width="2" stroke-linecap="round"/>','Fingers 90° + Conv.')};
+ILLUS['pescaGM_fingers2_conv']={prod:433,unit:'pcts/h/posto',desc:'Fingers duplo + Conveyor',svg:mkSVG('<rect x="10" y="28" width="90" height="5" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><line x1="16" y1="14" x2="16" y2="28" stroke="#2C3E6B" stroke-width="2"/><line x1="26" y1="14" x2="26" y2="28" stroke="#2C3E6B" stroke-width="2"/><line x1="40" y1="14" x2="40" y2="28" stroke="#2C3E6B" stroke-width="2"/><line x1="50" y1="14" x2="50" y2="28" stroke="#2C3E6B" stroke-width="2"/>','Fingers Duplo')};
+ILLUS['pescaGM_flow2x2_sc']={prod:195,unit:'pcts/h/posto',desc:'Flow 2x2 sem Conveyor',svg:mkSVG('<rect x="14" y="10" width="16" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="50" y="10" width="16" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/>','Flow 2x2 s/Conv.')};
+ILLUS['pescaGM_backer_sc']={prod:241,unit:'pcts/h/posto',desc:'Backer 180° sem Conveyor',svg:mkSVG('<rect x="14" y="12" width="14" height="22" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="50" y="12" width="14" height="22" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/>','Backer 180° s/Conv.')};
+ILLUS['pescaGM_fingers_sc']={prod:234,unit:'pcts/h/posto',desc:'Fingers sem Conveyor',svg:mkSVG('<rect x="14" y="10" width="16" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="50" y="10" width="16" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/>','Fingers s/Conv.')};
+ILLUS['pescaGM_flow3x08_sc']={prod:238,unit:'pcts/h/posto',desc:'Flow 3x0,8 sem Conveyor',svg:mkSVG('<rect x="12" y="10" width="18" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="48" y="10" width="18" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/>','Flow 3x0.8 s/Conv.')};
+ILLUS['armadoGM_flow2x2_6g']={prod:345,unit:'pcts/h/posto',desc:'1 Flow 2x2 — 6 Gaylords (padrão XD)',svg:mkSVG('<rect x="8" y="24" width="60" height="5" rx="1" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="72" y="8" width="8" height="12" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="82" y="8" width="8" height="12" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="92" y="8" width="8" height="12" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="72" y="22" width="8" height="12" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="82" y="22" width="8" height="12" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="92" y="22" width="8" height="12" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/>','1 Flow 2x2 — 6 Gaylords')};
+ILLUS['armadoGM_flow2x2_4g']={prod:360,unit:'pcts/h/posto',desc:'1 Flow 2x2 — 4 Gaylords',svg:mkSVG('<rect x="8" y="24" width="60" height="5" rx="1" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="72" y="8" width="9" height="14" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="83" y="8" width="9" height="14" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="72" y="24" width="9" height="14" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="83" y="24" width="9" height="14" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/>','1 Flow 2x2 — 4 Gaylords')};
+ILLUS['armadoGM_bipear_baker']={prod:533,unit:'pcts/h/posto',desc:'Bipear e Separar Baker — máxima velocidade',svg:mkSVG('<rect x="18" y="12" width="16" height="28" rx="2" fill="#EEF2FF" stroke="#2C3E6B" stroke-width="1.5"/><rect x="20" y="14" width="5" height="5" rx="1" fill="#F5E97A"/><rect x="20" y="22" width="5" height="5" rx="1" fill="#F5E97A"/><rect x="50" y="12" width="16" height="28" rx="2" fill="#EEF2FF" stroke="#2C3E6B" stroke-width="1.5"/><rect x="52" y="14" width="5" height="5" rx="1" fill="#F5E97A"/>','Bipear e Sep. Baker')};
+ILLUS['armadoGM_sorter_gaylord']={prod:414,unit:'pcts/h/posto',desc:'Sorter + Gaylord — alta capacidade',svg:mkSVG('<rect x="8" y="26" width="80" height="5" rx="2" fill="#2C3E6B" opacity=".25" stroke="#2C3E6B"/><rect x="10" y="18" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><rect x="25" y="18" width="10" height="10" rx="1" fill="#F5E97A" stroke="#E8D98A"/><rect x="92" y="10" width="20" height="30" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/>','Sorter + Gaylord')};
+var genericArmadoSVG=mkSVG('<rect x="8" y="24" width="55" height="5" rx="1" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="66" y="8" width="7" height="10" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="75" y="8" width="7" height="10" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="66" y="20" width="7" height="10" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/>','Armado HU');
+var mangaSVG=mkSVG('<rect x="8" y="24" width="55" height="5" rx="1" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="66" y="8" width="7" height="10" rx="3" fill="#C5CFEA" stroke="#2C3E6B"/><rect x="75" y="8" width="7" height="10" rx="3" fill="#C5CFEA" stroke="#2C3E6B"/><rect x="66" y="20" width="7" height="10" rx="3" fill="#C5CFEA" stroke="#2C3E6B"/>','Armado Mangas');
+var sacasSVG=mkSVG('<rect x="8" y="24" width="55" height="5" rx="1" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="66" y="8" width="7" height="10" rx="3" fill="#F5E97A" stroke="#E8D98A"/><rect x="75" y="8" width="7" height="10" rx="3" fill="#F5E97A" stroke="#E8D98A"/><rect x="66" y="20" width="7" height="10" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/>','Mixto Sacas');
+ILLUS['armadoGM_flow2x3_8g']={prod:343,unit:'pcts/h/posto',desc:'2 Flow 2x3 — 8 Gaylords',svg:genericArmadoSVG};
+ILLUS['armadoGM_flow2x3_10g']={prod:317,unit:'pcts/h/posto',desc:'2 Flow 2x3 — 10 Gaylords',svg:genericArmadoSVG};
+ILLUS['armadoGM_flow2x2_4m']={prod:391,unit:'pcts/h/posto',desc:'1 Flow 2x2 — 4 Mangas',svg:mangaSVG};
+ILLUS['armadoGM_flow2x2_6m']={prod:374,unit:'pcts/h/posto',desc:'1 Flow 2x2 — 6 Mangas',svg:mangaSVG};
+ILLUS['armadoGM_flow2x3_8m']={prod:383,unit:'pcts/h/posto',desc:'2 Flow 2x3 — 8 Mangas',svg:mangaSVG};
+ILLUS['armadoGM_flow2x3_10m']={prod:329,unit:'pcts/h/posto',desc:'2 Flow 2x3 — 10 Mangas',svg:mangaSVG};
+ILLUS['armadoGM_flow3x088_pallet']={prod:319,unit:'pcts/h/posto',desc:'Flow 3x0,88 + Pallet',svg:genericArmadoSVG};
+ILLUS['armadoGM_baker_pallet']={prod:419,unit:'pcts/h/posto',desc:'Separar Baker + Montar Pallet',svg:mkSVG('<rect x="20" y="12" width="16" height="28" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="22" y="14" width="5" height="5" rx="1" fill="#F5E97A"/><rect x="50" y="14" width="20" height="22" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/>','Baker + Pallet')};
+ILLUS['armadoGM_flow2x2_4sacas']={prod:278,unit:'pcts/h/posto',desc:'1 Flow 2x2 — 4 pos. MIXTO SACAS',svg:sacasSVG};
+ILLUS['armadoGM_flow2x2_6sacas']={prod:287,unit:'pcts/h/posto',desc:'1 Flow 2x2 — 6 pos. MIXTO SACAS',svg:sacasSVG};
+ILLUS['armadoGM_flow2x3_8sacas']={prod:269,unit:'pcts/h/posto',desc:'2 Flow 2x3 — 8 pos. MIXTO SACAS',svg:sacasSVG};
+ILLUS['armadoGM_flow2x3_10sacas']={prod:271,unit:'pcts/h/posto',desc:'2 Flow 2x3 — 10 pos. MIXTO SACAS',svg:sacasSVG};
+ILLUS['goleiro_goleiro']={prod:1175,unit:'pcts/h',desc:'Goleiro — Classificação + Bipeo, T.ciclo 3,06s',svg:mkSVG('<rect x="10" y="26" width="80" height="6" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B" stroke-width="1.5"/><rect x="12" y="18" width="10" height="10" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="40" y="18" width="10" height="10" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="68" y="18" width="10" height="10" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><circle cx="95" cy="29" r="8" fill="#F5E97A" stroke="#E8D98A"/><text x="95" y="32" text-anchor="middle" font-size="9" fill="#15203D" font-weight="bold">G</text>','Goleiro T.ciclo 3s')};
+ILLUS['goleiro_reinducao_conv']={prod:569,unit:'pcts/h',desc:'Reindução Baker Conveyor — T.ciclo 6,33s',svg:mkSVG('<rect x="10" y="26" width="80" height="6" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="10" y="18" width="14" height="10" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="30" y="18" width="14" height="10" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/>','Reindução Conveyor')};
+ILLUS['sepL_pallet']={prod:264,unit:'pcts/h/rua',desc:'Separação com Pallet',svg:mkSVG('<rect x="20" y="18" width="28" height="24" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="22" y="20" width="11" height="10" rx="1" fill="#C4631A" opacity=".4"/><rect x="35" y="20" width="11" height="10" rx="1" fill="#C4631A" opacity=".4"/>','Sep. Large c/ Pallet')};
+ILLUS['sepL_backer']={prod:300,unit:'pcts/h/rua',desc:'Separação com Backer',svg:mkSVG('<rect x="20" y="10" width="16" height="36" rx="2" fill="#FDF0E6" stroke="#C4631A" stroke-width="1.5"/><rect x="22" y="12" width="7" height="7" rx="1" fill="#C4631A" opacity=".6"/>','Sep. Large c/ Backer')};
+ILLUS['indL_backer_1rep']={prod:422,unit:'pcts/h/rua',desc:'Backer 90° 1 rep/ilha Large',svg:mkSVG('<rect x="10" y="28" width="60" height="6" rx="2" fill="#C4631A" opacity=".2" stroke="#C4631A" stroke-width="1.5"/><rect x="14" y="16" width="14" height="14" rx="2" fill="#FDF0E6" stroke="#C4631A"/>','Backer 90° 1 rep/ilha')};
+ILLUS['indL_pallet_1rep']={prod:226,unit:'pcts/h/rua',desc:'Pallet 90° 1 rep/ilha Large',svg:mkSVG('<rect x="10" y="28" width="60" height="6" rx="2" fill="#C4631A" opacity=".15" stroke="#C4631A"/><rect x="14" y="14" width="18" height="16" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/>','Pallet 1 rep/ilha')};
+ILLUS['indL_motor_1rep']={prod:330,unit:'pcts/h/rua',desc:'Motorizado Pallet 1 rep/ilha Large',svg:mkSVG('<rect x="8" y="30" width="70" height="5" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="10" y="22" width="16" height="12" rx="2" fill="#C4631A" opacity=".3"/>','Motor. Large 1 rep')};
+ILLUS['indL_motor_2rep']={prod:194,unit:'pcts/h/rua',desc:'Motorizado Pallet 1 rep/2 ilhas Large',svg:mkSVG('<rect x="8" y="30" width="100" height="5" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="10" y="22" width="14" height="10" rx="2" fill="#C4631A" opacity=".3"/><rect x="28" y="22" width="14" height="10" rx="2" fill="#C4631A" opacity=".3"/>','Motor. Large 2 ilhas')};
+ILLUS['pescaL_flow_motor_1c']={prod:415,unit:'pcts/h/rua',desc:'Flow Motorizado 1 calle Large',svg:mkSVG('<rect x="20" y="10" width="16" height="36" rx="2" fill="#FDF0E6" stroke="#C4631A" stroke-width="1.5"/><rect x="38" y="24" width="30" height="6" rx="2" fill="#C4631A" opacity=".25" stroke="#C4631A"/>','Flow Motor. Large 1c')};
+ILLUS['pescaL_flow_manual_1c']={prod:154,unit:'pcts/h/rua',desc:'Flow Manual 1 calle Large',svg:mkSVG('<rect x="20" y="10" width="16" height="36" rx="2" fill="#FDF0E6" stroke="#C4631A"/>','Flow Manual 1c')};
+ILLUS['pescaL_flow_manual_2c']={prod:109,unit:'pcts/h/rua',desc:'Flow Manual 2 calles',svg:mkSVG('<rect x="10" y="10" width="14" height="32" rx="2" fill="#FDF0E6" stroke="#C4631A"/><rect x="50" y="10" width="14" height="32" rx="2" fill="#FDF0E6" stroke="#C4631A"/>','Flow Manual 2c')};
+ILLUS['ov_patin']={prod:609,unit:'pcts/h',desc:'Patín Manual — desloca oversize pelo corredor',svg:mkSVG('<rect x="10" y="36" width="100" height="4" rx="1" fill="#EBEBEB"/><rect x="20" y="20" width="28" height="18" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="50" y="28" width="20" height="8" rx="2" fill="#F5E97A" stroke="#E8D98A"/>','Patín Oversize')};
+ILLUS['liv_inhub_livianos']={prod:411,unit:'pcts/h',desc:'Inhub Livianos Mixto',svg:mkSVG('<rect x="10" y="28" width="70" height="5" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="12" y="18" width="10" height="12" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="24" y="18" width="10" height="12" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/>','Inhub Livianos Mixto')};
+ILLUS['liv_inhub_tarjetas']={prod:7850,unit:'pcts/h',desc:'Inhub Tarjetas — altíssima produtividade',svg:mkSVG('<rect x="10" y="26" width="70" height="5" rx="2" fill="#2C3E6B" opacity=".25" stroke="#2C3E6B"/><rect x="12" y="16" width="8" height="12" rx="2" fill="#F5E97A" stroke="#E8D98A"/><rect x="22" y="16" width="8" height="12" rx="2" fill="#F5E97A" stroke="#E8D98A"/>','Inhub Tarjetas')};
+ILLUS['armadoLiv_armado_livianos']={prod:546,unit:'pcts/h',desc:'Armado de HU Livianos',svg:mkSVG('<rect x="10" y="26" width="50" height="5" rx="2" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><rect x="65" y="10" width="12" height="16" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/><rect x="80" y="10" width="12" height="16" rx="2" fill="#EEF2FF" stroke="#2C3E6B"/>','Armado HU Livianos')};
+ILLUS['stageOut_pal_manual_dupla']={prod:2585,unit:'pcts/h',desc:'Paletera Manual DUPLA >500kg',svg:mkSVG('<rect x="5" y="30" width="110" height="4" rx="1" fill="#EBEBEB"/><rect x="10" y="18" width="20" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="38" y="18" width="20" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/>','Stage Out DUPLA')};
+ILLUS['stageOut_pal_manual_simples']={prod:1797,unit:'pcts/h',desc:'Paletera Manual SIMPLES <500kg',svg:mkSVG('<rect x="5" y="28" width="110" height="4" rx="1" fill="#EBEBEB"/><rect x="10" y="18" width="20" height="12" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/>','Stage Out SIMPLES')};
+ILLUS['stageOut_pal_eletrica_triple']={prod:6408,unit:'pcts/h',desc:'Paletera Elétrica TRIPLE parada',svg:mkSVG('<rect x="5" y="28" width="100" height="4" rx="1" fill="#EBEBEB"/><rect x="8" y="16" width="16" height="14" rx="2" fill="#F5E97A" stroke="#E8D98A"/><rect x="28" y="16" width="16" height="14" rx="2" fill="#F5E97A" stroke="#E8D98A"/>','Stage Out Elét. TRIPLE')};
+ILLUS['stageOut_pal_eletrica_simples']={prod:2992,unit:'pcts/h',desc:'Paletera Elétrica SIMPLES parada',svg:mkSVG('<rect x="5" y="28" width="100" height="4" rx="1" fill="#EBEBEB"/><rect x="25" y="16" width="20" height="14" rx="2" fill="#F5E97A" stroke="#E8D98A"/>','Stage Out Elét. SIMPLES')};
+ILLUS['stageOut_pal_eletrica_caminha']={prod:1926,unit:'pcts/h',desc:'Paletera Elétrica — operador caminha',svg:mkSVG('<rect x="5" y="28" width="100" height="4" rx="1" fill="#EBEBEB"/><rect x="20" y="16" width="20" height="14" rx="2" fill="#F5E97A" stroke="#E8D98A"/>','Stage Out Elét. Caminha')};
+ILLUS['apil_transpaletera']={prod:5708,unit:'pcts/h',desc:'Transpaletera Elétrica — Apilamento de Mangas',svg:mkSVG('<rect x="20" y="24" width="28" height="8" rx="2" fill="#F5E97A" stroke="#E8D98A"/><rect x="20" y="14" width="28" height="8" rx="2" fill="#F5E97A" stroke="#E8D98A" opacity=".6"/><circle cx="22" cy="38" r="3" fill="#333"/><circle cx="46" cy="38" r="3" fill="#333"/>','Transpaletera Elét.')};
+ILLUS['apil_autoelevador']={prod:7119,unit:'pcts/h',desc:'Autoelevador — Apilamento de Mangas',svg:mkSVG('<rect x="20" y="26" width="28" height="8" rx="2" fill="#F5E97A" stroke="#E8D98A"/><rect x="16" y="10" width="36" height="24" rx="3" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/><circle cx="18" cy="38" r="4" fill="#333"/><circle cx="48" cy="38" r="4" fill="#333"/>','Autoelevador')};
+ILLUS['apil_pallet_high_abaixo']={prod:350,unit:'pcts/h',desc:'Pallet High — rep abaixo da escada',svg:mkSVG('<rect x="20" y="30" width="30" height="16" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="22" y="32" width="8" height="7" rx="1" fill="#2C3E6B" opacity=".3"/><rect x="55" y="18" width="8" height="26" fill="#B0B0B0"/>','Pallet High Abaixo')};
+ILLUS['apil_pallet_high_cima']={prod:531,unit:'pcts/h',desc:'Pallet High — rep sobre a escada',svg:mkSVG('<rect x="20" y="30" width="30" height="16" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="22" y="32" width="8" height="7" rx="1" fill="#2C3E6B" opacity=".3"/><rect x="55" y="18" width="8" height="26" fill="#B0B0B0"/>','Pallet High Cima')};
+ILLUS['carga_eletrica_emb']={prod:64.8,unit:'HUs/h',desc:'Paletera Elétrica Embarcada — sobe no veículo',svg:mkSVG('<rect x="70" y="14" width="44" height="32" rx="2" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="74" y="18" width="14" height="12" rx="1" fill="#2C3E6B" opacity=".4"/><rect x="32" y="28" width="36" height="10" rx="2" fill="#F5E97A" stroke="#E8D98A"/><circle cx="34" cy="42" r="4" fill="#333"/><circle cx="66" cy="42" r="4" fill="#333"/>','Pal. Elét. Embarcada')};
+ILLUS['carga_eletrica_des']={prod:51.3,unit:'HUs/h',desc:'Paletera Elétrica Desembarcada',svg:mkSVG('<rect x="70" y="14" width="44" height="32" rx="2" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="20" y="28" width="30" height="10" rx="2" fill="#F5E97A" stroke="#E8D98A"/>','Pal. Elét. Desemb.')};
+ILLUS['carga_manual']={prod:32.5,unit:'HUs/h',desc:'Paletera Manual — menor capacidade',svg:mkSVG('<rect x="70" y="14" width="44" height="32" rx="2" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="24" y="30" width="20" height="8" rx="2" fill="#717171"/>','Paletera Manual')};
+ILLUS['carga_auto_emb']={prod:47.7,unit:'HUs/h',desc:'Autoelevador Embarcado + Paletera Manual',svg:mkSVG('<rect x="70" y="14" width="44" height="32" rx="2" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="10" y="22" width="30" height="18" rx="3" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/>','Autoelevador Emb.')};
+ILLUS['carga_auto_des']={prod:41.9,unit:'HUs/h',desc:'Autoelevador Desembarcado + Paletera Manual',svg:mkSVG('<rect x="70" y="14" width="44" height="32" rx="2" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="10" y="26" width="26" height="14" rx="3" fill="#2C3E6B" opacity=".2" stroke="#2C3E6B"/>','Autoelevador Des.')};
+
+function updateIllus(key){
+  var selId=Object.keys(ILLUS_MAP).find(function(k){return ILLUS_MAP[k]===key;});
+  if(!selId) return;
+  var selEl=document.getElementById(selId);
+  if(!selEl) return;
+  var iKey=key+'_'+selEl.value;
+  var data=ILLUS[iKey];
+  var el=document.getElementById('illus-'+key);
+  if(!el) return;
+  if(!data){el.innerHTML='<span style="font-size:11px;color:var(--gray);padding:8px">Sem ilustração para esta opção</span>';return;}
+  var isLarge=['sepL','indL','pescaL'].indexOf(key)>=0;
+  var prodColor=isLarge?'#C4631A':'var(--blue)';
+  var prodStr=data.prod?(data.prod<100&&data.prod%1!==0?data.prod.toFixed(1):Math.round(data.prod).toLocaleString('pt-BR'))+' '+data.unit:'—';
+  el.innerHTML=data.svg+'<div class="sub-illus-info"><div class="sub-illus-prod" style="color:'+prodColor+'">'+prodStr+'</div><div class="sub-illus-desc">'+data.desc+'</div></div>';
 }
 
-var ILLUS = {};
+function initAllIllus(){Object.keys(ILLUS_MAP).forEach(function(selId){updateIllus(ILLUS_MAP[selId]);});}
 
-// Stage In
-ILLUS['stageIn_pal_eletrica_triple'] = { prod:8108, unit:'pcts/h', desc:'Paletera Elétrica TRIPLE parada — 3 bakers simultaneamente', svg: mkSVG('<rect x="8" y="18" width="16" height="14" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="28" y="18" width="16" height="14" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="48" y="18" width="16" height="14" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="34" y="32" width="36" height="8" rx="2" fill="#3483FA" opacity=".4"/><circle cx="36" cy="44" r="4" fill="#333"/><circle cx="68" cy="44" r="4" fill="#333"/><circle cx="52" cy="10" r="5" fill="#00A650" opacity=".8"/><path d="M49 10 L51 12 L55 8" stroke="white" stroke-width="1.5" stroke-linecap="round"/>','Pal. Elét. TRIPLE') };
-ILLUS['stageIn_pal_eletrica_simples'] = { prod:10271, unit:'pcts/h', desc:'Paletera Elétrica SIMPLES parada — max por baker', svg: mkSVG('<rect x="30" y="16" width="24" height="16" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="38" y="32" width="36" height="8" rx="2" fill="#3483FA" opacity=".4"/><circle cx="40" cy="44" r="4" fill="#333"/><circle cx="72" cy="44" r="4" fill="#333"/><circle cx="56" cy="10" r="5" fill="#00A650" opacity=".8"/>','Pal. Elét. SIMPLES') };
-ILLUS['stageIn_pal_eletrica_caminha'] = { prod:6783, unit:'pcts/h', desc:'Paletera Elétrica — operador caminha junto', svg: mkSVG('<rect x="25" y="18" width="20" height="14" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="35" y="32" width="28" height="8" rx="2" fill="#3483FA" opacity=".3"/><circle cx="37" cy="44" r="4" fill="#333"/><circle cx="61" cy="44" r="4" fill="#333"/><circle cx="78" cy="26" r="6" fill="#F5F5F5" stroke="#717171"/>','Pal. Elét. Caminha') };
-ILLUS['stageIn_tugger'] = { prod:5600, unit:'pcts/h', desc:'Tugger/Rebocador — puxa comboio de bakers pelo corredor', svg: mkSVG('<rect x="5" y="28" width="110" height="6" rx="1" fill="#EBEBEB"/><rect x="8" y="22" width="14" height="10" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="24" y="22" width="12" height="10" rx="2" fill="#3483FA" opacity=".3"/><rect x="38" y="22" width="12" height="10" rx="2" fill="#3483FA" opacity=".3"/><rect x="52" y="22" width="12" height="10" rx="2" fill="#3483FA" opacity=".3"/><rect x="66" y="22" width="12" height="10" rx="2" fill="#3483FA" opacity=".3"/>','Tugger — Comboio') };
-ILLUS['stageIn_pal_manual_dupla'] = { prod:8121, unit:'pcts/h', desc:'Paletera Manual DUPLA >500kg', svg: mkSVG('<rect x="15" y="18" width="22" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="40" y="18" width="22" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="40" y="32" width="5" height="16" fill="#717171"/><rect x="35" y="38" width="15" height="4" rx="1" fill="#717171"/>','Pal. Manual DUPLA') };
-ILLUS['stageIn_pal_manual_simples'] = { prod:6258, unit:'pcts/h', desc:'Paletera Manual SIMPLES <500kg', svg: mkSVG('<rect x="30" y="20" width="24" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="58" y="34" width="5" height="14" fill="#717171"/><rect x="53" y="40" width="15" height="4" rx="1" fill="#717171"/>','Pal. Manual SIMPLES') };
-ILLUS['stageIn_backer_leve'] = { prod:6472, unit:'pcts/h', desc:'Backer <200kg', svg: mkSVG('<rect x="25" y="14" width="18" height="28" rx="2" fill="#E6F1FB" stroke="#3483FA" stroke-width="1.5"/><rect x="27" y="16" width="7" height="7" rx="1" fill="#FFE600"/><rect x="27" y="26" width="7" height="7" rx="1" fill="#FFE600"/><rect x="55" y="14" width="18" height="28" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','Backer &lt;200kg') };
-ILLUS['stageIn_backer_pesado'] = { prod:5269, unit:'pcts/h', desc:'Backer >200kg — movimentação pesada', svg: mkSVG('<rect x="20" y="12" width="22" height="32" rx="2" fill="#FFF0E8" stroke="#FF7733" stroke-width="1.5"/><rect x="55" y="12" width="22" height="32" rx="2" fill="#FFF0E8" stroke="#FF7733"/>','Backer &gt;200kg') };
-
-// Inhub
-ILLUS['inhub_descarregar_induzir'] = { prod:407, unit:'pcts/h', desc:'Descarregar e Induzir — T.ciclo ~8,84s', svg: mkSVG('<rect x="8" y="20" width="20" height="26" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="10" y="22" width="8" height="8" rx="1" fill="#FFE600"/><rect x="32" y="28" width="50" height="6" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA" stroke-width="1.5"/><rect x="36" y="22" width="9" height="8" rx="1" fill="#FFE600"/><rect x="48" y="22" width="9" height="8" rx="1" fill="#FFE600"/>','Descarregar e Induzir') };
-ILLUS['inhub_bipear_induzir_sep'] = { prod:655, unit:'pcts/h', desc:'Bipear e Induzir Separando — T.ciclo ~5,50s', svg: mkSVG('<rect x="8" y="20" width="20" height="26" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="32" y="28" width="50" height="6" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA"/><circle cx="55" cy="20" r="5" fill="#F5F5F5" stroke="#717171"/><path d="M55 25 L55 28" stroke="#3483FA" stroke-width="1.5"/><line x1="45" y1="34" x2="45" y2="46" stroke="#3483FA" stroke-width="1.5" stroke-dasharray="2,2"/><line x1="60" y1="34" x2="60" y2="46" stroke="#3483FA" stroke-width="1.5" stroke-dasharray="2,2"/>','Bipear e Induzir Sep.') };
-ILLUS['inhub_bipear_induzir_ale'] = { prod:736, unit:'pcts/h', desc:'Bipear e Induzir Aleatório — T.ciclo ~4,89s', svg: mkSVG('<rect x="8" y="20" width="20" height="26" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="32" y="28" width="50" height="6" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA"/><circle cx="55" cy="20" r="5" fill="#F5F5F5" stroke="#717171"/><path d="M55 25 L55 28" stroke="#3483FA" stroke-width="1.5"/><path d="M45 34 Q50 42 55 34 Q60 42 65 34" fill="none" stroke="#3483FA" stroke-width="1.5" stroke-dasharray="3,2"/>','Bipear e Induzir Alea.') };
-
-// Indução GM
-ILLUS['indGM_flow_aleatorio'] = { prod:747, unit:'pcts/h/posto', desc:'Flow Rack Aleatório — T.ciclo 4,82s', svg: mkSVG('<rect x="10" y="28" width="70" height="6" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA" stroke-width="1.5"/><rect x="16" y="20" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><rect x="30" y="20" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><rect x="44" y="20" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><path d="M82 31 Q95 20 108 14" stroke="#3483FA" stroke-width="2" stroke-linecap="round"/><rect x="96" y="8" width="20" height="20" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','Flow Rack Aleatório') };
-ILLUS['indGM_conveyor'] = { prod:858, unit:'pcts/h/posto', desc:'Conveyor Backer 90° — T.ciclo 4,20s', svg: mkSVG('<rect x="10" y="28" width="80" height="6" rx="2" fill="#3483FA" opacity=".3" stroke="#3483FA" stroke-width="1.5"/><rect x="14" y="20" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><rect x="28" y="20" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><rect x="42" y="20" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><rect x="56" y="20" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><circle cx="10" cy="31" r="4" fill="#1A4F9E"/><circle cx="90" cy="31" r="4" fill="#1A4F9E"/>','Conveyor Backer 90°') };
-ILLUS['indGM_flow_separando'] = { prod:544, unit:'pcts/h/posto', desc:'Flow Separando de lado — T.ciclo 6,62s', svg: mkSVG('<rect x="10" y="28" width="70" height="6" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="14" y="20" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><rect x="30" y="20" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><rect x="85" y="8" width="20" height="20" rx="2" fill="#E6F1FB" stroke="#3483FA"/><path d="M80 28 L85 18" stroke="#3483FA" stroke-width="2"/>','Flow Separando') };
-ILLUS['indGM_raio_x'] = { prod:559, unit:'pcts/h/posto', desc:'Raio X + Backer 90° — T.ciclo 6,44s', svg: mkSVG('<rect x="10" y="28" width="60" height="6" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="14" y="20" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><rect x="75" y="14" width="30" height="18" rx="2" fill="#E6F1FB" stroke="#3483FA"/><text x="90" y="26" text-anchor="middle" font-size="9" fill="#3483FA" font-weight="bold">X</text><path d="M70 31 L75 22" stroke="#3483FA" stroke-width="2"/>','Raio X') };
-ILLUS['indGM_sem_conveyor'] = { prod:397, unit:'pcts/h/posto', desc:'Sem Conveyor — operador leva pacote ao BC', svg: mkSVG('<rect x="10" y="30" width="70" height="4" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="14" y="22" width="10" height="10" rx="1" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="30" y="22" width="10" height="10" rx="1" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="85" y="18" width="20" height="20" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','Sem Conveyor') };
-ILLUS['indGM_pallet_1rep'] = { prod:226, unit:'pcts/h/posto', desc:'Pallet 90° 1 rep/ilha — T.ciclo 15,96s', svg: mkSVG('<rect x="10" y="28" width="60" height="6" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="14" y="16" width="20" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="42" y="16" width="20" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><path d="M72 31 L85 22" stroke="#3483FA" stroke-width="2"/><rect x="85" y="10" width="22" height="24" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','Pallet 1 rep/ilha') };
-ILLUS['indGM_motor_1rep'] = { prod:330, unit:'pcts/h/posto', desc:'Motorizado Pallet 1 rep/ilha — T.ciclo 10,90s', svg: mkSVG('<rect x="8" y="30" width="70" height="5" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="10" y="22" width="16" height="12" rx="2" fill="#3483FA" opacity=".3"/><rect x="30" y="22" width="16" height="12" rx="2" fill="#3483FA" opacity=".3"/><rect x="80" y="24" width="18" height="10" rx="2" fill="#FFE600" stroke="#E6CF00"/>','Motor. Pallet 1 rep') };
-ILLUS['indGM_motor_2rep'] = { prod:194, unit:'pcts/h/posto', desc:'Motorizado Pallet 1 rep/2 ilhas', svg: mkSVG('<rect x="8" y="30" width="100" height="5" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="10" y="22" width="14" height="10" rx="2" fill="#3483FA" opacity=".3"/><rect x="28" y="22" width="14" height="10" rx="2" fill="#3483FA" opacity=".3"/><rect x="60" y="22" width="14" height="10" rx="2" fill="#3483FA" opacity=".3"/><rect x="78" y="22" width="14" height="10" rx="2" fill="#3483FA" opacity=".3"/>','Motor. 2 ilhas') };
-ILLUS['indGM_motor_3rep'] = { prod:171, unit:'pcts/h/posto', desc:'Motorizado Pallet 1 rep/3 ilhas', svg: mkSVG('<rect x="5" y="30" width="110" height="4" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="6" y="22" width="12" height="10" rx="2" fill="#3483FA" opacity=".3"/><rect x="22" y="22" width="12" height="10" rx="2" fill="#3483FA" opacity=".3"/><rect x="50" y="22" width="12" height="10" rx="2" fill="#3483FA" opacity=".3"/><rect x="66" y="22" width="12" height="10" rx="2" fill="#3483FA" opacity=".3"/><rect x="90" y="22" width="12" height="10" rx="2" fill="#3483FA" opacity=".3"/>','Motor. 3 ilhas') };
-
-// Pesca GM
-ILLUS['pescaGM_flow_duplo_conv'] = { prod:538, unit:'pcts/h/posto', desc:'Flow Duplo (2x3/2x2) + Conveyor — padrão XD', svg: mkSVG('<rect x="8" y="12" width="16" height="28" rx="2" fill="#E6F1FB" stroke="#3483FA" stroke-width="1.5"/><rect x="8" y="14" width="4" height="4" rx="1" fill="#FFE600"/><rect x="14" y="14" width="4" height="4" rx="1" fill="#FFE600"/><rect x="8" y="22" width="4" height="4" rx="1" fill="#FFE600"/><rect x="14" y="22" width="4" height="4" rx="1" fill="#FFE600"/><rect x="26" y="24" width="70" height="6" rx="2" fill="#3483FA" opacity=".25" stroke="#3483FA" stroke-width="1"/><rect x="40" y="12" width="16" height="28" rx="2" fill="#E6F1FB" stroke="#3483FA" stroke-width="1.5"/><rect x="40" y="14" width="4" height="4" rx="1" fill="#FFE600"/><rect x="46" y="14" width="4" height="4" rx="1" fill="#FFE600"/>','Flow Duplo + Conveyor') };
-ILLUS['pescaGM_backer_conv'] = { prod:395, unit:'pcts/h/posto', desc:'Backer 180° + Conveyor', svg: mkSVG('<rect x="10" y="26" width="90" height="5" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="14" y="14" width="14" height="14" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="16" y="16" width="5" height="5" rx="1" fill="#FFE600"/><rect x="50" y="14" width="14" height="14" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="52" y="16" width="5" height="5" rx="1" fill="#FFE600"/>','Backer 180° + Conv.') };
-ILLUS['pescaGM_fingers_conv'] = { prod:493, unit:'pcts/h/posto', desc:'Fingers 90° + Conveyor', svg: mkSVG('<rect x="10" y="28" width="90" height="5" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA"/><line x1="20" y1="16" x2="20" y2="28" stroke="#3483FA" stroke-width="2" stroke-linecap="round"/><line x1="35" y1="16" x2="35" y2="28" stroke="#3483FA" stroke-width="2" stroke-linecap="round"/><line x1="50" y1="16" x2="50" y2="28" stroke="#3483FA" stroke-width="2" stroke-linecap="round"/><rect x="18" y="12" width="4" height="6" rx="1" fill="#FFE600"/><rect x="33" y="12" width="4" height="6" rx="1" fill="#FFE600"/><rect x="48" y="12" width="4" height="6" rx="1" fill="#FFE600"/>','Fingers 90° + Conv.') };
-ILLUS['pescaGM_fingers2_conv'] = { prod:433, unit:'pcts/h/posto', desc:'Fingers duplo + Conveyor (0,5 HC)', svg: mkSVG('<rect x="10" y="28" width="90" height="5" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA"/><line x1="16" y1="14" x2="16" y2="28" stroke="#3483FA" stroke-width="2"/><line x1="26" y1="14" x2="26" y2="28" stroke="#3483FA" stroke-width="2"/><line x1="40" y1="14" x2="40" y2="28" stroke="#3483FA" stroke-width="2"/><line x1="50" y1="14" x2="50" y2="28" stroke="#3483FA" stroke-width="2"/>','Fingers Duplo') };
-ILLUS['pescaGM_flow2x2_sc'] = { prod:195, unit:'pcts/h/posto', desc:'Flow 2x2 sem Conveyor', svg: mkSVG('<rect x="14" y="10" width="16" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="14" y="12" width="6" height="6" rx="1" fill="#FFE600" opacity=".7"/><rect x="22" y="12" width="6" height="6" rx="1" fill="#FFE600" opacity=".7"/><rect x="14" y="22" width="6" height="6" rx="1" fill="#FFE600" opacity=".7"/><rect x="22" y="22" width="6" height="6" rx="1" fill="#FFE600" opacity=".7"/><rect x="50" y="10" width="16" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><circle cx="35" cy="28" r="5" fill="#717171"/>','Flow 2x2 s/Conv.') };
-ILLUS['pescaGM_backer_sc'] = { prod:241, unit:'pcts/h/posto', desc:'Backer 180° sem Conveyor', svg: mkSVG('<rect x="14" y="12" width="14" height="22" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="50" y="12" width="14" height="22" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><circle cx="35" cy="24" r="5" fill="#717171"/>','Backer 180° s/Conv.') };
-ILLUS['pescaGM_fingers_sc'] = { prod:234, unit:'pcts/h/posto', desc:'Fingers sem Conveyor', svg: mkSVG('<rect x="14" y="10" width="16" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="50" y="10" width="16" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><circle cx="35" cy="28" r="5" fill="#717171"/>','Fingers s/Conv.') };
-ILLUS['pescaGM_flow3x08_sc'] = { prod:238, unit:'pcts/h/posto', desc:'Flow 3x0,8 sem Conveyor', svg: mkSVG('<rect x="12" y="10" width="18" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="48" y="10" width="18" height="30" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><circle cx="35" cy="26" r="5" fill="#717171"/>','Flow 3x0.8 s/Conv.') };
-
-// Armado HU GM
-ILLUS['armadoGM_flow2x2_6g'] = { prod:345, unit:'pcts/h/posto', desc:'1 Flow 2x2 — 6 Gaylords (padrão XD)', svg: mkSVG('<rect x="8" y="24" width="60" height="5" rx="1" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="72" y="8" width="8" height="12" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="82" y="8" width="8" height="12" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="92" y="8" width="8" height="12" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="72" y="22" width="8" height="12" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="82" y="22" width="8" height="12" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="92" y="22" width="8" height="12" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','1 Flow 2x2 — 6 Gaylords') };
-ILLUS['armadoGM_flow2x2_4g'] = { prod:360, unit:'pcts/h/posto', desc:'1 Flow 2x2 — 4 Gaylords', svg: mkSVG('<rect x="8" y="24" width="60" height="5" rx="1" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="72" y="8" width="9" height="14" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="83" y="8" width="9" height="14" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="72" y="24" width="9" height="14" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="83" y="24" width="9" height="14" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','1 Flow 2x2 — 4 Gaylords') };
-ILLUS['armadoGM_bipear_baker'] = { prod:533, unit:'pcts/h/posto', desc:'Bipear e Separar Baker — máxima velocidade', svg: mkSVG('<rect x="18" y="12" width="16" height="28" rx="2" fill="#E6F1FB" stroke="#3483FA" stroke-width="1.5"/><rect x="20" y="14" width="5" height="5" rx="1" fill="#FFE600"/><rect x="20" y="22" width="5" height="5" rx="1" fill="#FFE600"/><rect x="50" y="12" width="16" height="28" rx="2" fill="#E6F1FB" stroke="#3483FA" stroke-width="1.5"/><rect x="52" y="14" width="5" height="5" rx="1" fill="#FFE600"/><circle cx="38" cy="26" r="7" fill="#F5F5F5" stroke="#717171"/>','Bipear e Sep. Baker') };
-ILLUS['armadoGM_sorter_gaylord'] = { prod:414, unit:'pcts/h/posto', desc:'Sorter + Gaylord — alta capacidade', svg: mkSVG('<rect x="8" y="26" width="80" height="5" rx="2" fill="#3483FA" opacity=".25" stroke="#3483FA"/><rect x="10" y="18" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><rect x="25" y="18" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><rect x="40" y="18" width="10" height="10" rx="1" fill="#FFE600" stroke="#E6CF00"/><rect x="92" y="10" width="20" height="30" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','Sorter + Gaylord') };
-// Generic SVG for remaining armado options
-var genericArmadoSVG = mkSVG('<rect x="8" y="24" width="55" height="5" rx="1" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="66" y="8" width="7" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="75" y="8" width="7" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="84" y="8" width="7" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="66" y="20" width="7" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="75" y="20" width="7" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','Armado HU');
-var mangaSVG = mkSVG('<rect x="8" y="24" width="55" height="5" rx="1" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="66" y="8" width="7" height="10" rx="3" fill="#D4E8FF" stroke="#3483FA"/><rect x="75" y="8" width="7" height="10" rx="3" fill="#D4E8FF" stroke="#3483FA"/><rect x="84" y="8" width="7" height="10" rx="3" fill="#D4E8FF" stroke="#3483FA"/><rect x="66" y="20" width="7" height="10" rx="3" fill="#D4E8FF" stroke="#3483FA"/>','Armado Mangas');
-var sacasSVG  = mkSVG('<rect x="8" y="24" width="55" height="5" rx="1" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="66" y="8" width="7" height="10" rx="3" fill="#FFE600" stroke="#E6CF00"/><rect x="75" y="8" width="7" height="10" rx="3" fill="#FFE600" stroke="#E6CF00"/><rect x="66" y="20" width="7" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="75" y="20" width="7" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','Mixto Sacas');
-
-ILLUS['armadoGM_flow2x3_8g']     = { prod:343, unit:'pcts/h/posto', desc:'2 Flow 2x3 — 8 Gaylords',        svg: genericArmadoSVG };
-ILLUS['armadoGM_flow2x3_10g']    = { prod:317, unit:'pcts/h/posto', desc:'2 Flow 2x3 — 10 Gaylords',       svg: genericArmadoSVG };
-ILLUS['armadoGM_flow2x2_4m']     = { prod:391, unit:'pcts/h/posto', desc:'1 Flow 2x2 — 4 Mangas',          svg: mangaSVG };
-ILLUS['armadoGM_flow2x2_6m']     = { prod:374, unit:'pcts/h/posto', desc:'1 Flow 2x2 — 6 Mangas',          svg: mangaSVG };
-ILLUS['armadoGM_flow2x3_8m']     = { prod:383, unit:'pcts/h/posto', desc:'2 Flow 2x3 — 8 Mangas',          svg: mangaSVG };
-ILLUS['armadoGM_flow2x3_10m']    = { prod:329, unit:'pcts/h/posto', desc:'2 Flow 2x3 — 10 Mangas',         svg: mangaSVG };
-ILLUS['armadoGM_flow3x088_pallet']={ prod:319, unit:'pcts/h/posto', desc:'Flow 3x0,88 + Pallet',           svg: genericArmadoSVG };
-ILLUS['armadoGM_baker_pallet']   = { prod:419, unit:'pcts/h/posto', desc:'Separar Baker + Montar Pallet',   svg: mkSVG('<rect x="20" y="12" width="16" height="28" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="22" y="14" width="5" height="5" rx="1" fill="#FFE600"/><rect x="22" y="22" width="5" height="5" rx="1" fill="#FFE600"/><rect x="50" y="14" width="20" height="22" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><path d="M36 28 L50 28" stroke="#3483FA" stroke-width="1.5"/>','Baker + Pallet') };
-ILLUS['armadoGM_flow2x2_4sacas'] = { prod:278, unit:'pcts/h/posto', desc:'1 Flow 2x2 — 4 pos. MIXTO SACAS', svg: sacasSVG };
-ILLUS['armadoGM_flow2x2_6sacas'] = { prod:287, unit:'pcts/h/posto', desc:'1 Flow 2x2 — 6 pos. MIXTO SACAS', svg: sacasSVG };
-ILLUS['armadoGM_flow2x3_8sacas'] = { prod:269, unit:'pcts/h/posto', desc:'2 Flow 2x3 — 8 pos. MIXTO SACAS', svg: sacasSVG };
-ILLUS['armadoGM_flow2x3_10sacas']= { prod:271, unit:'pcts/h/posto', desc:'2 Flow 2x3 — 10 pos. MIXTO SACAS',svg: sacasSVG };
-
-// Goleiro
-ILLUS['goleiro_goleiro']       = { prod:1175, unit:'pcts/h', desc:'Goleiro — Classificação + Bipeo, T.ciclo 3,06s', svg: mkSVG('<rect x="10" y="26" width="80" height="6" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA" stroke-width="1.5"/><rect x="12" y="18" width="10" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="40" y="18" width="10" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="68" y="18" width="10" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/><circle cx="95" cy="29" r="8" fill="#FFE600" stroke="#E6CF00"/><text x="95" y="32" text-anchor="middle" font-size="9" fill="#1A4F9E" font-weight="bold">G</text>','Goleiro T.ciclo 3s') };
-ILLUS['goleiro_reinducao_conv'] = { prod:569, unit:'pcts/h', desc:'Reindução Baker Conveyor — T.ciclo 6,33s', svg: mkSVG('<rect x="10" y="26" width="80" height="6" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="10" y="18" width="14" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="30" y="18" width="14" height="10" rx="2" fill="#E6F1FB" stroke="#3483FA"/><path d="M80 28 Q95 10 100 28" fill="none" stroke="#3483FA" stroke-width="1.5" stroke-dasharray="3,2"/>','Reindução Conveyor') };
-
-// Large
-ILLUS['sepL_pallet'] = { prod:264, unit:'pcts/h/rua', desc:'Separação com Pallet — empilha volumosos', svg: mkSVG('<rect x="20" y="18" width="28" height="24" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="22" y="20" width="11" height="10" rx="1" fill="#FF7733" opacity=".4"/><rect x="35" y="20" width="11" height="10" rx="1" fill="#FF7733" opacity=".4"/><rect x="58" y="28" width="5" height="14" fill="#717171"/><rect x="53" y="34" width="14" height="4" rx="1" fill="#717171"/>','Sep. Large c/ Pallet') };
-ILLUS['sepL_backer'] = { prod:300, unit:'pcts/h/rua', desc:'Separação com Backer — movimentação mais ágil', svg: mkSVG('<rect x="20" y="10" width="16" height="36" rx="2" fill="#FFF0E8" stroke="#FF7733" stroke-width="1.5"/><rect x="22" y="12" width="7" height="7" rx="1" fill="#FF7733" opacity=".6"/><rect x="22" y="22" width="7" height="7" rx="1" fill="#FF7733" opacity=".6"/><rect x="22" y="32" width="7" height="7" rx="1" fill="#FF7733" opacity=".6"/>','Sep. Large c/ Backer') };
-ILLUS['indL_backer_1rep'] = { prod:422, unit:'pcts/h/rua', desc:'Backer 90° 1 rep/ilha Large — T.ciclo 8,54s', svg: mkSVG('<rect x="10" y="28" width="60" height="6" rx="2" fill="#FF7733" opacity=".2" stroke="#FF7733" stroke-width="1.5"/><rect x="14" y="16" width="14" height="14" rx="2" fill="#FFF0E8" stroke="#FF7733"/><rect x="16" y="18" width="5" height="5" rx="1" fill="#FF7733" opacity=".6"/><rect x="38" y="16" width="14" height="14" rx="2" fill="#FFF0E8" stroke="#FF7733"/><path d="M72 31 L86 22" stroke="#FF7733" stroke-width="2"/><rect x="86" y="10" width="22" height="24" rx="2" fill="#FFF0E8" stroke="#FF7733"/>','Backer 90° 1 rep/ilha') };
-ILLUS['indL_pallet_1rep'] = { prod:226, unit:'pcts/h/rua', desc:'Pallet 90° 1 rep/ilha Large', svg: mkSVG('<rect x="10" y="28" width="60" height="6" rx="2" fill="#FF7733" opacity=".15" stroke="#FF7733"/><rect x="14" y="14" width="18" height="16" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="40" y="14" width="18" height="16" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><path d="M72 31 L86 24" stroke="#FF7733" stroke-width="2"/>','Pallet 1 rep/ilha') };
-ILLUS['indL_motor_1rep'] = { prod:330, unit:'pcts/h/rua', desc:'Motorizado Pallet 1 rep/ilha Large', svg: mkSVG('<rect x="8" y="30" width="70" height="5" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="10" y="22" width="16" height="12" rx="2" fill="#FF7733" opacity=".3"/><rect x="30" y="22" width="16" height="12" rx="2" fill="#FF7733" opacity=".3"/>','Motor. Large 1 rep') };
-ILLUS['indL_motor_2rep'] = { prod:194, unit:'pcts/h/rua', desc:'Motorizado Pallet 1 rep/2 ilhas Large', svg: mkSVG('<rect x="8" y="30" width="100" height="5" rx="1" fill="#EBEBEB" stroke="#B0B0B0"/><rect x="10" y="22" width="14" height="10" rx="2" fill="#FF7733" opacity=".3"/><rect x="28" y="22" width="14" height="10" rx="2" fill="#FF7733" opacity=".3"/><rect x="60" y="22" width="14" height="10" rx="2" fill="#FF7733" opacity=".3"/><rect x="78" y="22" width="14" height="10" rx="2" fill="#FF7733" opacity=".3"/>','Motor. Large 2 ilhas') };
-ILLUS['pescaL_flow_motor_1c'] = { prod:415, unit:'pcts/h/rua', desc:'Flow Motorizado 1 calle Large', svg: mkSVG('<rect x="20" y="10" width="16" height="36" rx="2" fill="#FFF0E8" stroke="#FF7733" stroke-width="1.5"/><rect x="38" y="24" width="30" height="6" rx="2" fill="#FF7733" opacity=".25" stroke="#FF7733"/><path d="M58 24 L70 27 L58 30" fill="#FF7733"/>','Flow Motor. Large 1c') };
-ILLUS['pescaL_flow_manual_1c'] = { prod:154, unit:'pcts/h/rua', desc:'Flow Manual 1 calle Large', svg: mkSVG('<rect x="20" y="10" width="16" height="36" rx="2" fill="#FFF0E8" stroke="#FF7733"/><rect x="40" y="28" width="12" height="14" rx="2" fill="#717171"/>','Flow Manual 1c') };
-ILLUS['pescaL_flow_manual_2c'] = { prod:109, unit:'pcts/h/rua', desc:'Flow Manual 2 calles — maior percurso', svg: mkSVG('<rect x="10" y="10" width="14" height="32" rx="2" fill="#FFF0E8" stroke="#FF7733"/><rect x="50" y="10" width="14" height="32" rx="2" fill="#FFF0E8" stroke="#FF7733"/><rect x="28" y="24" width="12" height="14" rx="2" fill="#717171"/>','Flow Manual 2c') };
-
-// Oversize
-ILLUS['ov_patin'] = { prod:609, unit:'pcts/h', desc:'Patín Manual — desloca oversize pelo corredor', svg: mkSVG('<rect x="10" y="36" width="100" height="4" rx="1" fill="#EBEBEB"/><rect x="20" y="20" width="28" height="18" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="50" y="28" width="20" height="8" rx="2" fill="#FFE600" stroke="#E6CF00"/><path d="M62 32 L76 32" stroke="#E6CF00" stroke-width="2"/>','Patín Oversize') };
-
-// Livianos
-ILLUS['liv_inhub_livianos'] = { prod:411, unit:'pcts/h', desc:'Inhub Livianos Mixto — pacotes pequenos e cartões', svg: mkSVG('<rect x="10" y="28" width="70" height="5" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="12" y="18" width="10" height="12" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="24" y="18" width="10" height="12" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="36" y="18" width="10" height="12" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','Inhub Livianos Mixto') };
-ILLUS['liv_inhub_tarjetas'] = { prod:7850, unit:'pcts/h', desc:'Inhub Tarjetas — altíssima produtividade', svg: mkSVG('<rect x="10" y="26" width="70" height="5" rx="2" fill="#3483FA" opacity=".25" stroke="#3483FA"/><rect x="12" y="16" width="8" height="12" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="22" y="16" width="8" height="12" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="32" y="16" width="8" height="12" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="42" y="16" width="8" height="12" rx="2" fill="#FFE600" stroke="#E6CF00"/>','Inhub Tarjetas') };
-ILLUS['armadoLiv_armado_livianos'] = { prod:546, unit:'pcts/h', desc:'Armado de HU Livianos', svg: mkSVG('<rect x="10" y="26" width="50" height="5" rx="2" fill="#3483FA" opacity=".2" stroke="#3483FA"/><rect x="65" y="10" width="12" height="16" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="80" y="10" width="12" height="16" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="65" y="28" width="12" height="16" rx="2" fill="#E6F1FB" stroke="#3483FA"/><rect x="80" y="28" width="12" height="16" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','Armado HU Livianos') };
-
-// Stage Out
-ILLUS['stageOut_pal_manual_dupla']     = { prod:2585, unit:'pcts/h', desc:'Paletera Manual DUPLA >500kg — padrão XD', svg: mkSVG('<rect x="5" y="30" width="110" height="4" rx="1" fill="#EBEBEB"/><rect x="10" y="18" width="20" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="38" y="18" width="20" height="14" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="56" y="32" width="5" height="14" fill="#717171"/>','Stage Out DUPLA') };
-ILLUS['stageOut_pal_manual_simples']   = { prod:1797, unit:'pcts/h', desc:'Paletera Manual SIMPLES <500kg', svg: mkSVG('<rect x="5" y="28" width="110" height="4" rx="1" fill="#EBEBEB"/><rect x="10" y="18" width="20" height="12" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="66" y="30" width="5" height="12" fill="#717171"/>','Stage Out SIMPLES') };
-ILLUS['stageOut_pal_eletrica_triple']  = { prod:6408, unit:'pcts/h', desc:'Paletera Elétrica TRIPLE parada — alta velocidade', svg: mkSVG('<rect x="5" y="28" width="100" height="4" rx="1" fill="#EBEBEB"/><rect x="8" y="16" width="16" height="14" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="28" y="16" width="16" height="14" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="48" y="16" width="16" height="14" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="68" y="24" width="30" height="8" rx="2" fill="#3483FA" opacity=".4"/>','Stage Out Elét. TRIPLE') };
-ILLUS['stageOut_pal_eletrica_simples'] = { prod:2992, unit:'pcts/h', desc:'Paletera Elétrica SIMPLES parada', svg: mkSVG('<rect x="5" y="28" width="100" height="4" rx="1" fill="#EBEBEB"/><rect x="25" y="16" width="20" height="14" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="55" y="24" width="30" height="8" rx="2" fill="#3483FA" opacity=".4"/>','Stage Out Elét. SIMPLES') };
-ILLUS['stageOut_pal_eletrica_caminha'] = { prod:1926, unit:'pcts/h', desc:'Paletera Elétrica — operador caminha', svg: mkSVG('<rect x="5" y="28" width="100" height="4" rx="1" fill="#EBEBEB"/><rect x="20" y="16" width="20" height="14" rx="2" fill="#FFE600" stroke="#E6CF00"/><circle cx="78" cy="26" r="6" fill="#F5F5F5" stroke="#717171"/>','Stage Out Elét. Caminha') };
-
-// Apilamento
-ILLUS['apil_transpaletera']      = { prod:5708, unit:'pcts/h', desc:'Transpaletera Elétrica — Apilamento de Mangas', svg: mkSVG('<rect x="20" y="24" width="28" height="8" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="20" y="14" width="28" height="8" rx="2" fill="#FFE600" stroke="#E6CF00" opacity=".6"/><circle cx="22" cy="38" r="3" fill="#333"/><circle cx="46" cy="38" r="3" fill="#333"/><rect x="56" y="10" width="20" height="30" rx="2" fill="#E6F1FB" stroke="#3483FA"/>','Transpaletera Elét.') };
-ILLUS['apil_autoelevador']       = { prod:7119, unit:'pcts/h', desc:'Autoelevador — Apilamento de Mangas, mais veloz', svg: mkSVG('<rect x="20" y="26" width="28" height="8" rx="2" fill="#FFE600" stroke="#E6CF00"/><rect x="16" y="10" width="36" height="24" rx="3" fill="#3483FA" opacity=".2" stroke="#3483FA"/><circle cx="18" cy="38" r="4" fill="#333"/><circle cx="48" cy="38" r="4" fill="#333"/>','Autoelevador') };
-ILLUS['apil_pallet_high_abaixo'] = { prod:350, unit:'pcts/h', desc:'Pallet High PACOTE — rep abaixo da escada', svg: mkSVG('<rect x="20" y="30" width="30" height="16" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="22" y="32" width="8" height="7" rx="1" fill="#3483FA" opacity=".3"/><rect x="55" y="18" width="8" height="26" fill="#B0B0B0"/><circle cx="65" cy="30" r="6" fill="#F5F5F5" stroke="#717171"/>','Pallet High Abaixo') };
-ILLUS['apil_pallet_high_cima']   = { prod:531, unit:'pcts/h', desc:'Pallet High PACOTE — rep sobre a escada', svg: mkSVG('<rect x="20" y="30" width="30" height="16" rx="2" fill="#F5F5F5" stroke="#B0B0B0"/><rect x="22" y="32" width="8" height="7" rx="1" fill="#3483FA" opacity=".3"/><rect x="55" y="18" width="8" height="26" fill="#B0B0B0"/><circle cx="65" cy="18" r="6" fill="#F5F5F5" stroke="#717171"/>','Pallet High Cima') };
-
-// Carga
-ILLUS['carga_eletrica_emb'] = { prod:64.8, unit:'HUs/h', desc:'Paletera Elétrica Embarcada — sobe no veículo', svg: mkSVG('<rect x="70" y="14" width="44" height="32" rx="2" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="74" y="18" width="14" height="12" rx="1" fill="#3483FA" opacity=".4"/><rect x="92" y="18" width="14" height="12" rx="1" fill="#3483FA" opacity=".4"/><rect x="32" y="28" width="36" height="10" rx="2" fill="#FFE600" stroke="#E6CF00"/><circle cx="34" cy="42" r="4" fill="#333"/><circle cx="66" cy="42" r="4" fill="#333"/>','Pal. Elét. Embarcada') };
-ILLUS['carga_eletrica_des'] = { prod:51.3, unit:'HUs/h', desc:'Paletera Elétrica Desembarcada — fica fora do veículo', svg: mkSVG('<rect x="70" y="14" width="44" height="32" rx="2" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="74" y="18" width="14" height="12" rx="1" fill="#3483FA" opacity=".4"/><rect x="20" y="28" width="30" height="10" rx="2" fill="#FFE600" stroke="#E6CF00"/><path d="M50 32 L70 32" stroke="#E6CF00" stroke-width="2" stroke-dasharray="4,2"/>','Pal. Elét. Desemb.') };
-ILLUS['carga_manual']       = { prod:32.5, unit:'HUs/h', desc:'Paletera Manual — menor capacidade', svg: mkSVG('<rect x="70" y="14" width="44" height="32" rx="2" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="24" y="30" width="20" height="8" rx="2" fill="#717171"/><rect x="24" y="24" width="4" height="14" fill="#717171"/><path d="M44 32 L70 32" stroke="#B0B0B0" stroke-width="2" stroke-dasharray="4,2"/>','Paletera Manual') };
-ILLUS['carga_auto_emb']     = { prod:47.7, unit:'HUs/h', desc:'Autoelevador Embarcado + Paletera Manual', svg: mkSVG('<rect x="70" y="14" width="44" height="32" rx="2" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="10" y="22" width="30" height="18" rx="3" fill="#3483FA" opacity=".2" stroke="#3483FA"/><circle cx="12" cy="44" r="4" fill="#333"/><circle cx="38" cy="44" r="4" fill="#333"/><path d="M40 30 L70 30" stroke="#3483FA" stroke-width="2" stroke-dasharray="4,2"/>','Autoelevador Emb.') };
-ILLUS['carga_auto_des']     = { prod:41.9, unit:'HUs/h', desc:'Autoelevador Desembarcado + Paletera Manual', svg: mkSVG('<rect x="70" y="14" width="44" height="32" rx="2" fill="#F5F5F5" stroke="#EBEBEB"/><rect x="10" y="26" width="26" height="14" rx="3" fill="#3483FA" opacity=".2" stroke="#3483FA"/><circle cx="12" cy="44" r="4" fill="#333"/><circle cx="34" cy="44" r="4" fill="#333"/><path d="M36 32 L70 32" stroke="#3483FA" stroke-width="2" stroke-dasharray="4,2"/>','Autoelevador Des.') };
-
-// ── updateIllus ──────────────────────────────────────────────────────────
-function updateIllus(key) {
-  var selId = Object.keys(ILLUS_MAP).find(function(k){ return ILLUS_MAP[k]===key; });
-  if (!selId) return;
-  var selEl = document.getElementById(selId);
-  if (!selEl) return;
-  var iKey = key + '_' + selEl.value;
-  var data = ILLUS[iKey];
-  var el = document.getElementById('illus-' + key);
-  if (!el) return;
-  if (!data) {
-    el.innerHTML = '<span style="font-size:11px;color:var(--gray);padding:8px">Sem ilustração para esta opção</span>';
-    return;
-  }
-  var isLarge = ['sepL','indL','pescaL'].indexOf(key) >= 0;
-  var prodColor = isLarge ? '#FF7733' : 'var(--blue)';
-  var prodStr = data.prod
-    ? (data.prod < 100 ? data.prod.toFixed(1) : Math.round(data.prod).toLocaleString('pt-BR')) + ' ' + data.unit
-    : '—';
-  el.innerHTML = data.svg +
-    '<div class="sub-illus-info">' +
-      '<div class="sub-illus-prod" style="color:' + prodColor + '">' + prodStr + '</div>' +
-      '<div class="sub-illus-desc">' + data.desc + '</div>' +
-    '</div>';
-}
-
-function initAllIllus() {
-  Object.keys(ILLUS_MAP).forEach(function(selId) {
-    updateIllus(ILLUS_MAP[selId]);
-  });
-}
-
-// ── Helpers ──────────────────────────────────────────────────────────────
-function syncR(sliderId, hiddenId, labelId, suffix) {
-  var v = document.getElementById(sliderId).value;
-  document.getElementById(hiddenId).value = v;
-  document.getElementById(labelId).textContent = v + suffix;
+function syncR(sliderId,hiddenId,labelId,suffix){
+  var v=document.getElementById(sliderId).value;
+  document.getElementById(hiddenId).value=v;
+  document.getElementById(labelId).textContent=v+suffix;
   calcular();
 }
-function n(id)   { return parseFloat(document.getElementById(id).value) || 0; }
-function pct(id) { return n(id) / 100; }
-function sv(id)  { return document.getElementById(id).value; }
-function capOf(selId) {
-  var m = CAP_MAP[selId];
-  return m ? (m[sv(selId)] || null) : null;
-}
-function postos(dem, cap) {
-  if (!cap || cap <= 0 || !dem || dem <= 0) return null;
-  return Math.ceil(dem / cap);
-}
-function ocup(dem, cap) {
-  if (!cap || cap <= 0 || !dem || dem <= 0) return null;
-  var p = Math.ceil(dem / cap);
-  return Math.min(Math.round(dem / (p * cap) * 100), 100);
-}
-function ocupRaw(dem, cap) {
-  if (!cap || cap <= 0 || !dem || dem <= 0) return 0;
-  return dem / cap * 100;
-}
+function n(id){return parseFloat(document.getElementById(id).value)||0;}
+function pct(id){return n(id)/100;}
+function sv(id){return document.getElementById(id).value;}
+function capOf(selId){var m=CAP_MAP[selId];return m?(m[sv(selId)]||null):null;}
+function postos(dem,cap){if(!cap||cap<=0||!dem||dem<=0) return null;return Math.ceil(dem/cap);}
+function ocup(dem,cap){if(!cap||cap<=0||!dem||dem<=0) return null;var p=Math.ceil(dem/cap);return Math.min(Math.round(dem/(p*cap)*100),100);}
+function ocupRaw(dem,cap){if(!cap||cap<=0||!dem||dem<=0) return 0;return dem/cap*100;}
 
-// ── calcular() ───────────────────────────────────────────────────────────
-function calcular() {
-  var volTotal    = n('volTotal');
-  var pVol        = pct('pctVol');
-  var pOv         = pct('pctOv');
-  var pLiv        = pct('pctLiv');
-  var pGM         = Math.max(0, 1 - pVol - pOv - pLiv);
-  var hrsStageIn  = n('hrsStageIn')  || 1;
-  var hrsSorting  = n('hrsSorting')  || 1;
-  var hrsStageOut = n('hrsStageOut') || 1;
-  var ruasGM      = n('ruasGM')      || 1;
-  var ruasLarge   = n('ruasLarge')   || 1;
+function calcular(){
+  var volTotal=n('volTotal');
+  var pVol=pct('pctVol');
+  var pOv=pct('pctOv');
+  var pLiv=pct('pctLiv');
+  var pGM=Math.max(0,1-pVol-pOv-pLiv);
+  var hrsStageIn=n('hrsStageIn')||1;
+  var hrsSorting=n('hrsSorting')||1;
+  var hrsStageOut=n('hrsStageOut')||1;
+  var ruasGM=n('ruasGM')||1;
+  var ruasLarge=n('ruasLarge')||1;
 
-  var volGM    = volTotal * pGM;
-  var volLarge = volTotal * pVol;
-  var volOv    = volTotal * pOv;
-  var volLiv   = volTotal * pLiv;
+  var volGM=volTotal*pGM;
+  var volLarge=volTotal*pVol;
+  var volOv=volTotal*pOv;
+  var volLiv=volTotal*pLiv;
 
-  // demandas por hora por subprocesso
-  var demStageIn   = volTotal  / hrsStageIn;
-  var demInhub     = volGM     / hrsStageIn;
-  var demIndGM     = volGM     / hrsSorting;
-  var demPescaGM   = volGM     / hrsSorting / ruasGM;
-  var demArmadoGM  = volGM     / hrsSorting / ruasGM;
-  var demSepL      = volLarge  / hrsSorting / ruasLarge;
-  var demIndL      = volLarge  / hrsSorting / ruasLarge;
-  var demPescaL    = volLarge  / hrsSorting / ruasLarge;
-  var demOv        = volOv     / hrsSorting;
-  var demLiv       = volLiv    / hrsStageIn;
-  var demArmadoLiv = volLiv    / hrsSorting;
-  var demStageOut  = volTotal  / hrsStageOut;
+  var demStageIn=volTotal/hrsStageIn;
+  var demInhub=volGM/hrsStageIn;
+  var demIndGM=volGM/hrsSorting;
+  var demPescaGM=volGM/hrsSorting/ruasGM;
+  var demArmadoGM=volGM/hrsSorting/ruasGM;
+  var demSepL=volLarge/hrsSorting/ruasLarge;
+  var demIndL=volLarge/hrsSorting/ruasLarge;
+  var demPescaL=volLarge/hrsSorting/ruasLarge;
+  var demOv=volOv/hrsSorting;
+  var demLiv=volLiv/hrsStageIn;
+  var demArmadoLiv=volLiv/hrsSorting;
+  var demStageOut=volTotal/hrsStageOut;
 
-  var cStageIn  = capOf('tipoStageIn');
-  var cInhub    = capOf('tipoInhub');
-  var cIndGM    = capOf('tipoIndGM');
-  var cPescaGM  = capOf('tipoPescaGM');
-  var cArmadoGM = capOf('tipoArmadoGM');
-  var cGoleiro  = capOf('tipoGoleiro');
-  var cSepL     = capOf('tipoSepL');
-  var cIndL     = capOf('tipoIndL');
-  var cPescaL   = capOf('tipoPescaL');
-  var cOv       = capOf('tipoOv');
-  var cLiv      = capOf('tipoLiv');
-  var cArmLiv   = capOf('tipoArmadoLiv');
-  var cStageOut = capOf('tipoStageOut');
-  var cApil     = capOf('tipoApil');
-  var cCarga    = capOf('tipoCarga');
+  var cStageIn=capOf('tipoStageIn');
+  var cInhub=capOf('tipoInhub');
+  var cIndGM=capOf('tipoIndGM');
+  var cPescaGM=capOf('tipoPescaGM');
+  var cArmadoGM=capOf('tipoArmadoGM');
+  var cGoleiro=capOf('tipoGoleiro');
+  var cSepL=capOf('tipoSepL');
+  var cIndL=capOf('tipoIndL');
+  var cPescaL=capOf('tipoPescaL');
+  var cOv=capOf('tipoOv');
+  var cLiv=capOf('tipoLiv');
+  var cArmLiv=capOf('tipoArmadoLiv');
+  var cStageOut=capOf('tipoStageOut');
+  var cApil=capOf('tipoApil');
+  var cCarga=capOf('tipoCarga');
 
-  var grupos = [
-    { grp:'Stage In', rows:[
-      { nome:'Stage In', equip:sv('tipoStageIn'), dem:demStageIn, cap:cStageIn, sufx:'pcts/h' },
+  var grupos=[
+    {grp:'Stage In',rows:[{nome:'Stage In',equip:sv('tipoStageIn'),dem:demStageIn,cap:cStageIn,sufx:'pcts/h'}]},
+    {grp:'Inhub Interno',rows:[{nome:'Inhub — Descarregar / Induzir',equip:sv('tipoInhub'),dem:demInhub,cap:cInhub,sufx:'pcts/h'}]},
+    {grp:'Sorteáveis (GM) — Sorting',rows:[
+      {nome:'Indução GM',equip:sv('tipoIndGM'),dem:demIndGM,cap:cIndGM,sufx:'pcts/h'},
+      {nome:'Pesca GM (por rua)',equip:sv('tipoPescaGM'),dem:demPescaGM,cap:cPescaGM,sufx:'pcts/h/rua'},
+      {nome:'Armado HU GM (por rua)',equip:sv('tipoArmadoGM'),dem:demArmadoGM,cap:cArmadoGM,sufx:'pcts/h/rua'},
+      {nome:'Goleiro / Reindução',equip:sv('tipoGoleiro'),dem:null,cap:cGoleiro,sufx:'pcts/h'},
     ]},
-    { grp:'Inhub Interno', rows:[
-      { nome:'Inhub — Descarregar / Induzir', equip:sv('tipoInhub'), dem:demInhub, cap:cInhub, sufx:'pcts/h' },
-    ]},
-    { grp:'Sorteáveis (GM) — Sorting', rows:[
-      { nome:'Indução GM',             equip:sv('tipoIndGM'),    dem:demIndGM,    cap:cIndGM,    sufx:'pcts/h' },
-      { nome:'Pesca GM (por rua)',      equip:sv('tipoPescaGM'),  dem:demPescaGM,  cap:cPescaGM,  sufx:'pcts/h/rua' },
-      { nome:'Armado HU GM (por rua)',  equip:sv('tipoArmadoGM'), dem:demArmadoGM, cap:cArmadoGM, sufx:'pcts/h/rua' },
-      { nome:'Goleiro / Reindução',     equip:sv('tipoGoleiro'),  dem:null,        cap:cGoleiro,  sufx:'pcts/h' },
-    ]},
-    { grp:'Volumosos (Large)', rows:[
-      { nome:'Separação Large (por rua)', equip:sv('tipoSepL'),   dem:demSepL,   cap:cSepL,   sufx:'pcts/h/rua' },
-      { nome:'Indução Large (por rua)',   equip:sv('tipoIndL'),   dem:demIndL,   cap:cIndL,   sufx:'pcts/h/rua' },
-      { nome:'Pesca Large (por rua)',     equip:sv('tipoPescaL'), dem:demPescaL, cap:cPescaL, sufx:'pcts/h/rua' },
+    {grp:'Volumosos (Large)',rows:[
+      {nome:'Separação Large (por rua)',equip:sv('tipoSepL'),dem:demSepL,cap:cSepL,sufx:'pcts/h/rua'},
+      {nome:'Indução Large (por rua)',equip:sv('tipoIndL'),dem:demIndL,cap:cIndL,sufx:'pcts/h/rua'},
+      {nome:'Pesca Large (por rua)',equip:sv('tipoPescaL'),dem:demPescaL,cap:cPescaL,sufx:'pcts/h/rua'},
     ]},
   ];
 
-  if (volOv > 0) {
-    grupos.push({ grp:'Oversize', rows:[
-      { nome:'Movimentação Oversize', equip:sv('tipoOv'), dem:demOv, cap:cOv, sufx:'pcts/h' },
-    ]});
-  }
-  if (volLiv > 0) {
-    grupos.push({ grp:'Livianos (Mercado Pago)', rows:[
-      { nome:'Inhub Livianos',   equip:sv('tipoLiv'),       dem:demLiv,      cap:cLiv,   sufx:'pcts/h' },
-      { nome:'Armado HU Lív.',   equip:sv('tipoArmadoLiv'), dem:demArmadoLiv,cap:cArmLiv,sufx:'pcts/h' },
-    ]});
-  }
-  grupos.push({ grp:'Stage Out e Carga', rows:[
-    { nome:'Stage Out',     equip:sv('tipoStageOut'), dem:demStageOut, cap:cStageOut, sufx:'pcts/h' },
-    { nome:'Apilamento',    equip:sv('tipoApil'),     dem:null,        cap:cApil,     sufx:'pcts/h' },
-    { nome:'Carga Caminhão',equip:sv('tipoCarga'),    dem:null,        cap:cCarga,    sufx:'HUs/h'  },
+  if(volOv>0){grupos.push({grp:'Oversize',rows:[{nome:'Movimentação Oversize',equip:sv('tipoOv'),dem:demOv,cap:cOv,sufx:'pcts/h'}]});}
+  if(volLiv>0){grupos.push({grp:'Livianos (Mercado Pago)',rows:[
+    {nome:'Inhub Livianos',equip:sv('tipoLiv'),dem:demLiv,cap:cLiv,sufx:'pcts/h'},
+    {nome:'Armado HU Lív.',equip:sv('tipoArmadoLiv'),dem:demArmadoLiv,cap:cArmLiv,sufx:'pcts/h'},
+  ]});}
+  grupos.push({grp:'Stage Out e Carga',rows:[
+    {nome:'Stage Out',equip:sv('tipoStageOut'),dem:demStageOut,cap:cStageOut,sufx:'pcts/h'},
+    {nome:'Apilamento',equip:sv('tipoApil'),dem:null,cap:cApil,sufx:'pcts/h'},
+    {nome:'Carga Caminhão',equip:sv('tipoCarga'),dem:null,cap:cCarga,sufx:'HUs/h'},
   ]});
 
-  // gargalo
-  var maxOcupRaw = 0; var gargaloNome = '';
-  grupos.forEach(function(g) { g.rows.forEach(function(r) {
-    if (r.dem && r.cap) { var o = ocupRaw(r.dem, r.cap); if (o > maxOcupRaw) { maxOcupRaw = o; gargaloNome = r.nome; } }
-  }); });
+  var maxOcupRaw=0;var gargaloNome='';
+  grupos.forEach(function(g){g.rows.forEach(function(r){if(r.dem&&r.cap){var o=ocupRaw(r.dem,r.cap);if(o>maxOcupRaw){maxOcupRaw=o;gargaloNome=r.nome;}}});});
 
-  var html = '<div class="animate">';
-  html += '<div class="res-kpis">';
-  html += '<div class="kpi hl"><div class="kpi-val">' + Math.round(volGM/hrsSorting).toLocaleString('pt-BR') + '</div><div class="kpi-lbl">Dem. GM pcts/h</div></div>';
-  html += '<div class="kpi hl"><div class="kpi-val">' + Math.round(volLarge/hrsSorting).toLocaleString('pt-BR') + '</div><div class="kpi-lbl">Dem. Large pcts/h</div></div>';
-  html += '<div class="kpi"><div class="kpi-val" style="color:var(--green)">' + Math.round(volGM).toLocaleString('pt-BR') + '</div><div class="kpi-lbl">Vol. GM ciclo</div></div>';
-  html += '<div class="kpi"><div class="kpi-val" style="color:#FF7733">' + Math.round(volLarge).toLocaleString('pt-BR') + '</div><div class="kpi-lbl">Vol. Large ciclo</div></div>';
-  html += '</div>';
+  var html='<div class="animate">';
+  html+='<div class="res-kpis">';
+  html+='<div class="kpi hl"><div class="kpi-val">'+Math.round(volGM/hrsSorting).toLocaleString('pt-BR')+'</div><div class="kpi-lbl">Dem. GM pcts/h</div></div>';
+  html+='<div class="kpi hl"><div class="kpi-val">'+Math.round(volLarge/hrsSorting).toLocaleString('pt-BR')+'</div><div class="kpi-lbl">Dem. Large pcts/h</div></div>';
+  html+='<div class="kpi"><div class="kpi-val" style="color:var(--green)">'+Math.round(volGM).toLocaleString('pt-BR')+'</div><div class="kpi-lbl">Vol. GM ciclo</div></div>';
+  html+='<div class="kpi"><div class="kpi-val" style="color:#C4631A">'+Math.round(volLarge).toLocaleString('pt-BR')+'</div><div class="kpi-lbl">Vol. Large ciclo</div></div>';
+  html+='</div>';
 
-  if (maxOcupRaw > 100) {
-    html += '<div style="margin:0 1.25rem .5rem;padding:8px 12px;background:#FDECEC;border:1px solid #F09595;border-radius:8px;font-size:12px;color:#A32D2D;line-height:1.5;">&#x1F6A8; Capacidade insuficiente: <strong>' + gargaloNome + '</strong> — ' + Math.round(maxOcupRaw) + '% da capacidade.</div>';
-  } else if (maxOcupRaw > 85) {
-    html += '<div style="margin:0 1.25rem .5rem;padding:8px 12px;background:var(--orange-light);border:1px solid #FFCCAA;border-radius:8px;font-size:12px;color:#8B3A00;line-height:1.5;">&#x26A0;&#xFE0F; Gargalo prov\u00e1vel: <strong>' + gargaloNome + '</strong> — ' + Math.round(maxOcupRaw) + '% de ocupa\u00e7\u00e3o.</div>';
-  }
+  if(maxOcupRaw>100){html+='<div style="margin:0 1.25rem .5rem;padding:8px 12px;background:#FDECEC;border:1px solid #F09595;border-radius:8px;font-size:12px;color:#A32D2D;line-height:1.5;">&#x1F6A8; Capacidade insuficiente: <strong>'+gargaloNome+'</strong> — '+Math.round(maxOcupRaw)+'% da capacidade.</div>';}
+  else if(maxOcupRaw>85){html+='<div style="margin:0 1.25rem .5rem;padding:8px 12px;background:var(--orange-light);border:1px solid #FFCCAA;border-radius:8px;font-size:12px;color:#7A3C0A;line-height:1.5;">&#x26A0;&#xFE0F; Gargalo provável: <strong>'+gargaloNome+'</strong> — '+Math.round(maxOcupRaw)+'% de ocupação.</div>';}
 
-  html += '<div class="res-table-wrap"><table class="res-table">';
-  html += '<thead><tr><th>Subprocesso</th><th>Cap. MTM</th><th>Dem./h</th><th>Postos</th><th>Ocup.</th></tr></thead><tbody>';
+  html+='<div class="res-table-wrap"><table class="res-table"><thead><tr><th>Subprocesso</th><th>Cap. MTM</th><th>Dem./h</th><th>Postos</th><th>Ocup.</th></tr></thead><tbody>';
 
-  grupos.forEach(function(g) {
-    html += '<tr class="grp-hdr"><td colspan="5">' + g.grp + '</td></tr>';
-    g.rows.forEach(function(r) {
-      var p = postos(r.dem, r.cap);
-      var o = ocup(r.dem, r.cap);
-      var capFmt = r.cap ? (r.cap < 100 && r.cap % 1 !== 0 ? r.cap.toFixed(1) : Math.round(r.cap).toLocaleString('pt-BR')) : '\u2014';
-      var demFmt = r.dem ? Math.round(r.dem).toLocaleString('pt-BR') : '\u2014';
-      var pFmt   = p ? p : '\u2014';
-      var oCls = '', oTxt = '\u2014';
-      if (o !== null) { oTxt = o + '%'; oCls = o > 100 ? 'ocp-over' : o > 90 ? 'ocp-high' : o > 70 ? 'ocp-med' : 'ocp-ok'; }
-      var barW = o ? Math.min(o, 100) : 0;
-      var barColor = o > 100 ? '#C0392B' : o > 90 ? '#FF7733' : o > 70 ? '#3483FA' : '#00A650';
-      html += '<tr>';
-      html += '<td style="max-width:120px;font-size:11px">' + r.nome + '<br><span style="font-size:9px;font-weight:400;color:var(--gray);font-style:italic">' + r.equip + '</span></td>';
-      html += '<td>' + capFmt + '<br><span style="font-size:9px;font-weight:400;color:var(--gray)">' + r.sufx + '</span></td>';
-      html += '<td>' + demFmt + '</td>';
-      html += '<td style="color:var(--blue)">' + pFmt + '</td>';
-      html += '<td class="bar-cell">';
-      if (o !== null) {
-        html += '<div class="bar-bg"></div><div class="bar-fill" style="width:' + barW + '%;background:' + barColor + '"></div><span class="bar-txt ' + oCls + '">' + oTxt + '</span>';
-      } else { html += '<span style="color:var(--gray)">\u2014</span>'; }
-      html += '</td></tr>';
+  grupos.forEach(function(g){
+    html+='<tr class="grp-hdr"><td colspan="5">'+g.grp+'</td></tr>';
+    g.rows.forEach(function(r){
+      var p=postos(r.dem,r.cap);
+      var o=ocup(r.dem,r.cap);
+      var capFmt=r.cap?(r.cap<100&&r.cap%1!==0?r.cap.toFixed(1):Math.round(r.cap).toLocaleString('pt-BR')):'—';
+      var demFmt=r.dem?Math.round(r.dem).toLocaleString('pt-BR'):'—';
+      var pFmt=p?p:'—';
+      var oCls='',oTxt='—';
+      if(o!==null){oTxt=o+'%';oCls=o>100?'ocp-over':o>90?'ocp-high':o>70?'ocp-med':'ocp-ok';}
+      var barW=o?Math.min(o,100):0;
+      var barColor=o>100?'#C0392B':o>90?'#C4631A':o>70?'#2C3E6B':'#2E7D5E';
+      html+='<tr>';
+      html+='<td style="max-width:120px;font-size:11px">'+r.nome+'<br><span style="font-size:9px;font-weight:400;color:var(--gray);font-style:italic">'+r.equip+'</span></td>';
+      html+='<td>'+capFmt+'<br><span style="font-size:9px;font-weight:400;color:var(--gray)">'+r.sufx+'</span></td>';
+      html+='<td>'+demFmt+'</td>';
+      html+='<td style="color:var(--blue)">'+pFmt+'</td>';
+      html+='<td class="bar-cell">';
+      if(o!==null){html+='<div class="bar-bg"></div><div class="bar-fill" style="width:'+barW+'%;background:'+barColor+'"></div><span class="bar-txt '+oCls+'">'+oTxt+'</span>';}
+      else{html+='<span style="color:var(--gray)">—</span>';}
+      html+='</td></tr>';
     });
   });
-  html += '</tbody></table></div></div>';
-  document.getElementById('result-area').innerHTML = html;
+  html+='</tbody></table></div></div>';
+  document.getElementById('result-area').innerHTML=html;
 }
 
-function togglePrem(btn) {
-  var body = document.getElementById('premissas-body');
-  var icon = document.getElementById('prem-icon');
+function togglePrem(btn){
+  var body=document.getElementById('premissas-body');
+  var icon=document.getElementById('prem-icon');
   body.classList.toggle('open');
-  icon.textContent = body.classList.contains('open') ? '\u25B2' : '\u25BC';
-  btn.style.borderRadius = body.classList.contains('open') ? '10px 10px 0 0' : '10px';
+  icon.textContent=body.classList.contains('open')?'▲':'▼';
+  btn.style.borderRadius=body.classList.contains('open')?'10px 10px 0 0':'10px';
 }
 
-window.addEventListener('load', function() {
-  initAllIllus();
-  calcular();
-});
+window.addEventListener('load',function(){initAllIllus();calcular();});
 </script>
 </body>
 </html>
