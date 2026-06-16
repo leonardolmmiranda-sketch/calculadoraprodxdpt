@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Produtividade — XD</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --yellow: #FFF8DC; --yellow-mid: #F5E97A; --yellow-dark: #E8D98A;
+  --blue: #2C3E6B; --blue-dark: #1E2D52; --blue-deeper: #15203D;
+  --blue-mid: #3D5490; --blue-light: #EEF2FF;
+  --dark: #1A1A2E; --text: #333333; --gray: #717171;
+  --gray-light: #F5F5F5; --border: #EBEBEB; --white: #FFFFFF;
+  --green: #2E7D5E; --green-dark: #1F5C44; --green-light: #E8F5EE;
+  --purple: #5B3AA8; --purple-light: #EEE8FA;
+  --orange: #C4631A; --orange-light: #FDF0E6;
+  --teal: #0B7E8A; --teal-light: #E0F5F7;
+  --red: #B91C1C; --red-light: #FEE2E2;
+  --bg: #EDEAE3;
+}
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+header { background: var(--yellow); height: 60px; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--yellow-dark); }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-mark { width: 36px; height: 36px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.logo-mark svg { width: 20px; height: 20px; }
+.logo-name { font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 17px; color: var(--blue-deeper); }
+.logo-sub { font-size: 10px; font-weight: 600; color: var(--blue-dark); letter-spacing: 1px; text-transform: uppercase; margin-top: 1px; }
+.badge-header { background: var(--blue); color: var(--yellow-mid); font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; }
+.header-nav { display: flex; align-items: center; gap: 8px; }
+.nav-link { font-size: 12px; font-weight: 600; color: var(--blue-deeper); text-decoration: none; background: rgba(255,255,255,0.7); padding: 5px 14px; border-radius: 20px; border: 1px solid var(--yellow-dark); transition: background .15s; cursor: pointer; }
+.nav-link:hover { background: white; }
+.hero { background: var(--yellow); padding: 3rem 2rem 2.5rem; text-align: center; border-bottom: 3px solid var(--yellow-dark); }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; background: rgba(44,62,107,0.08); padding: 5px 16px; border-radius: 20px; }
+.hero h1 { font-family: 'Raleway', sans-serif; font-size: clamp(28px, 5vw, 48px); font-weight: 900; color: var(--blue-deeper); letter-spacing: -1px; margin-bottom: 10px; }
+.hero h1 span { background: var(--blue); color: var(--yellow-mid); padding: 2px 10px; border-radius: 6px; }
+.hero-sub { font-size: 15px; color: var(--blue-dark); opacity: 0.75; max-width: 520px; margin: 0 auto 20px; line-height: 1.6; }
+.hero-pills { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.pill { background: white; border: 1px solid rgba(44,62,107,0.15); border-radius: 20px; padding: 4px 12px; font-size: 11px; font-weight: 500; color: var(--blue-dark); }
+.app-layout { display: grid; grid-template-columns: 360px 1fr; gap: 24px; max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+.panel { background: white; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; }
+.panel-header { background: var(--blue); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 10px; }
+.panel-title { font-family: 'Raleway', sans-serif; font-size: 14px; font-weight: 800; color: var(--yellow-mid); }
+.panel-icon { font-size: 18px; }
+.inputs-panel { display: flex; flex-direction: column; position: sticky; top: 80px; max-height: calc(100vh - 100px); overflow-y: auto; }
+.inputs-panel::-webkit-scrollbar { width: 4px; }
+.inputs-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+.section-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); padding: 10px 1.25rem 4px; background: var(--gray-light); border-top: 1px solid var(--border); }
+.input-group { padding: 8px 1.25rem; display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid #F0F0F0; }
+.input-label { font-size: 11px; font-weight: 600; color: var(--blue-deeper); display: flex; align-items: center; gap: 6px; }
+.input-hint { font-size: 10px; color: var(--gray); margin-top: 1px; }
+.input-row { display: flex; align-items: center; gap: 8px; }
+input[type=number], select { flex: 1; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; padding: 6px 10px; border: 1.5px solid var(--border); border-radius: 8px; background: white; color: var(--blue-deeper); transition: border-color .15s; appearance: none; -webkit-appearance: none; }
+input[type=number]:focus, select:focus { outline: none; border-color: var(--blue-mid); }
+.input-unit { font-size: 10px; font-weight: 600; color: var(--gray); white-space: nowrap; min-width: 32px; }
+/* Alerta percentual */
+.alert-warning { background: #FFF3CD; border: 1px solid #ffc107; border-radius: 8px; padding: 8px 12px; font-size: 11px; color: #856404; display: none; align-items: center; gap: 6px; margin: 0 1.25rem 4px; }
+.results-col { display: flex; flex-direction: column; gap: 20px; }
+.flow-block { background: white; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; }
+.flow-header { display: flex; align-items: center; gap: 10px; padding: 10px 1.25rem; cursor: pointer; user-select: none; transition: background .15s; }
+.flow-header:hover { background: var(--gray-light); }
+.flow-badge { font-family: 'Raleway', sans-serif; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
+.flow-badge.sorteable { background: var(--blue-light); color: var(--blue); border: 1px solid rgba(44,62,107,0.2); }
+.flow-badge.large     { background: var(--orange-light); color: var(--orange); border: 1px solid rgba(196,99,26,0.2); }
+.flow-badge.livianos  { background: var(--teal-light); color: var(--teal); border: 1px solid rgba(11,126,138,0.2); }
+.flow-badge.oversizes { background: var(--purple-light); color: var(--purple); border: 1px solid rgba(91,58,168,0.2); }
+.flow-badge.dispatch  { background: var(--green-light); color: var(--green); border: 1px solid rgba(46,125,94,0.2); }
+.flow-title { font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 800; color: var(--blue-deeper); flex: 1; }
+.flow-chevron { font-size: 12px; color: var(--gray); transition: transform .2s; }
+.flow-header.open .flow-chevron { transform: rotate(180deg); }
+.flow-body { display: none; padding: 0 1.25rem 1.25rem; }
+.flow-body.open { display: block; }
+.process-row { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; align-items: start; padding: 10px 0; border-bottom: 1px solid #F5F5F5; }
+.process-row:last-child { border-bottom: none; }
+.process-name { font-size: 12px; font-weight: 600; color: var(--blue-deeper); }
+.process-method { font-size: 11px; color: var(--gray); margin-top: 2px; }
+select.method-select { font-size: 11px; padding: 5px 8px; border-radius: 8px; border: 1.5px solid var(--border); color: var(--blue-deeper); background: var(--gray-light); min-width: 180px; }
+select.method-select:focus { border-color: var(--blue-mid); background: white; }
+.cap-badge { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; min-width: 90px; }
+.cap-value { font-family: 'Raleway', sans-serif; font-size: 18px; font-weight: 900; line-height: 1; color: var(--blue); }
+.cap-value.na { color: var(--red); font-size: 14px; }
+.cap-unit { font-size: 9px; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
+.cap-type { font-size: 9px; padding: 2px 6px; border-radius: 10px; font-weight: 600; }
+.cap-type.fixed       { background: var(--green-light); color: var(--green-dark); }
+.cap-type.variable    { background: #FFF3CD; color: #856404; }
+.cap-type.conditional { background: var(--red-light); color: var(--red); }
+/* Summary principal */
+.summary-bar { background: var(--blue); border-radius: 12px; padding: 1rem 1.25rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; }
+.summary-item { display: flex; flex-direction: column; gap: 2px; }
+.summary-label { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(245,233,122,0.6); }
+.summary-value { font-family: 'Raleway', sans-serif; font-size: 22px; font-weight: 900; color: var(--yellow-mid); line-height: 1; }
+.summary-sub { font-size: 10px; color: rgba(255,255,255,0.5); }
+/* FIX — Gargalo por fluxo */
+.fbn-block { background: white; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; }
+.fbn-header { background: var(--blue-deeper); padding: 10px 1.25rem; display: flex; align-items: center; gap: 8px; }
+.fbn-title { font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 800; color: var(--yellow-mid); }
+.fbn-grid { display: grid; grid-template-columns: repeat(5, 1fr); }
+.fbn-item { display: flex; flex-direction: column; gap: 4px; padding: 1rem; border-right: 1px solid var(--border); }
+.fbn-item:last-child { border-right: none; }
+.fbn-val { font-family: 'Raleway', sans-serif; font-size: 20px; font-weight: 900; color: var(--blue-deeper); line-height: 1; margin-top: 4px; }
+.fbn-unit { font-size: 9px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
+.fbn-name { font-size: 10px; color: var(--gray); margin-top: 2px; line-height: 1.3; }
+.info-note { background: var(--blue-light); border: 1px solid rgba(44,62,107,0.15); border-radius: 10px; padding: 10px 14px; font-size: 11px; color: var(--blue-deeper); line-height: 1.6; display: flex; gap: 8px; }
+footer { background: var(--yellow); border-top: 2px solid var(--yellow-dark); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.footer-brand { font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 700; color: var(--blue-deeper); }
+.footer-note { font-size: 12px; color: var(--blue-dark); opacity: 0.7; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.flow-block { animation: fadeUp .3s ease both; }
+.flow-block:nth-child(1){animation-delay:.05s} .flow-block:nth-child(2){animation-delay:.10s}
+.flow-block:nth-child(3){animation-delay:.15s} .flow-block:nth-child(4){animation-delay:.20s}
+.flow-block:nth-child(5){animation-delay:.25s}
+@media (max-width: 900px) {
+  .app-layout { grid-template-columns: 1fr; }
+  .inputs-panel { position: static; max-height: none; }
+  .fbn-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) { .fbn-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header><a class="logo" href="https://mtmtransportes-paginainicialpt.vercel.app/">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="6.5" r="3.5" fill="#F5E97A"/>
+        <path d="M2.5 17.5c0-4.142 3.358-7.5 7.5-7.5s7.5 3.358 7.5 7.5" stroke="#F5E97A" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="logo-name">Mercado Libre</div>
+      <div class="logo-sub">MTM &middot; Cross Docking</div>
+    </div>
+  </a>
+  <div class="header-nav">
+    <a class="nav-link" href="https://mtmtransportes-calculadoraprodxdes.vercel.app/">&#x1F1EA;&#x1F1F8; Espa&ntilde;ol</a>
+    <a class="nav-link" href="https://mtmtransportes-paginainicialpt.vercel.app/">&#x1F3E0; P&aacute;gina Inicial</a>
+    <span class="badge-header">MTM</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">&#x2699;&#xFE0F; Planejamento Operacional</div>
+  <h1>Calculadora de Produtividade &mdash; <span>XD</span></h1>
+  <p class="hero-sub">Selecione o m&eacute;todo de cada posto de trabalho e veja a produtividade calculada em tempo real.</p>
+  <div class="hero-pills">
+    <div class="pill">&#x1F4E6; Stage In / Out</div>
+    <div class="pill">&#x1F504; Inhub &middot; Inducci&oacute;n</div>
+    <div class="pill">&#x1F3A3; Pesca &middot; Armado HU</div>
+    <div class="pill">&#x1F69B; Carga</div>
+    <div class="pill">&#x2709;&#xFE0F; Livianos &middot; Oversizes</div>
+  </div>
+</div>
+
+<div class="app-layout">
+<!-- ============================================================
+     INPUTS
+     ============================================================ -->
+<div class="inputs-panel panel">
+  <div class="panel-header">
+    <span class="panel-icon">&#x2699;&#xFE0F;</span>
+    <span class="panel-title">Dados da Opera&ccedil;&atilde;o</span>
+  </div>
+
+  <div class="section-label">&#x1F4CA; Geral</div>
+  <div class="input-group">
+    <div class="input-label">Volume total</div>
+    <div class="input-row"><input type="number" id="vol_total" min="1"></div>
+    <div class="input-hint">Pacotes a processar no turno (INPUTS B4)</div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">% Voluminosos</div>
+    <div class="input-row"><input type="number" id="pct_vol" min="0" max="100" step="1"><span class="input-unit">%</span></div>
+    <div class="input-hint">Impacta frequ&ecirc;ncia de troca de baker no Inhub</div>
+  </div>
+
+  <div class="section-label">&#x1F69B; Inhub</div>
+  <div class="input-group">
+    <div class="input-label">Pacotes por caminh&atilde;o (LH)</div>
+    <div class="input-row"><input type="number" id="paq_lh" min="1"><span class="input-unit">paq</span></div>
+    <div class="input-hint">Freq. entrada/sa&iacute;da de caminh&atilde;o</div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">N&uacute;mero de ondas</div>
+    <div class="input-row"><input type="number" id="ondas" min="1"><span class="input-unit">ondas</span></div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">N&uacute;mero de canaliza&ccedil;&otilde;es</div>
+    <div class="input-row"><input type="number" id="subcas" min="1"><span class="input-unit">subcas</span></div>
+  </div>
+
+  <div class="section-label">&#x1F4CF; Dist&acirc;ncias &mdash; Stage In</div>
+  <div class="input-group">
+    <div class="input-label">Dist. m&aacute;x. doca &rarr; buffer</div>
+    <div class="input-row"><input type="number" id="dist_doca_buffer" min="1"><span class="input-unit">m</span></div>
+    <div class="input-hint">Afeta todos os modos Stage In</div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">Dist. m&aacute;x. buffer &rarr; voluminoso</div>
+    <div class="input-row"><input type="number" id="dist_buf_vol" min="1"><span class="input-unit">m</span></div>
+    <div class="input-hint">Previsto para Separaci&oacute;n / Inhub Large</div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">Qtd. backers / comboio (Tugger)</div>
+    <div class="input-row"><input type="number" id="backers_comboio" min="1"><span class="input-unit">bcks</span></div>
+  </div>
+
+  <div class="section-label">&#x1F4E6; Volumetria &mdash; Sorteable</div>
+  <div class="input-group">
+    <div class="input-label">Paq. sorteable por pallet</div>
+    <div class="input-row"><input type="number" id="paq_pallet_sort" min="1"><span class="input-unit">paq</span></div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">Paq. sorteable por baker</div>
+    <div class="input-row"><input type="number" id="paq_baker_sort" min="1"><span class="input-unit">paq</span></div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">SPP Sorteable / HU (Gaylord)</div>
+    <div class="input-row"><input type="number" id="spp_sort" min="1"><span class="input-unit">paq</span></div>
+    <div class="input-hint">Freq. fechamento HU = 1/SPP</div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">SPP Sorteable / Manga</div>
+    <div class="input-row"><input type="number" id="spp_manga" min="1"><span class="input-unit">paq</span></div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">SPP Sorteable / Saca</div>
+    <div class="input-row"><input type="number" id="spp_saca" min="1"><span class="input-unit">paq</span></div>
+  </div>
+
+  <div class="section-label">&#x1F4E6; Volumetria &mdash; Large</div>
+  <div class="input-group">
+    <div class="input-label">Paq. voluminoso por pallet</div>
+    <div class="input-row"><input type="number" id="paq_pallet_vol" min="1"><span class="input-unit">paq</span></div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">Paq. voluminoso por baker</div>
+    <div class="input-row"><input type="number" id="paq_baker_vol" min="1"><span class="input-unit">paq</span></div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">SPP Voluminoso / HU</div>
+    <div class="input-row"><input type="number" id="spp_vol" min="1"><span class="input-unit">paq</span></div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">HUs por ilha Large</div>
+    <div class="input-row"><input type="number" id="hus_ilha_large" min="1"><span class="input-unit">HUs</span></div>
+  </div>
+
+  <div class="section-label">&#x1F4E6; Volumetria &mdash; Oversizes</div>
+  <div class="input-group">
+    <div class="input-label">SPP Oversizes / HU</div>
+    <div class="input-row"><input type="number" id="spp_over" min="1"><span class="input-unit">paq</span></div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">Subcas / rua Oversize</div>
+    <div class="input-row"><input type="number" id="subcas_calle_over" min="1"><span class="input-unit">subcas</span></div>
+    <div class="input-hint">Canalizações por rua/ilha de Oversize (INPUTS B24)</div>
+  </div>
+
+  <div class="section-label">&#x1F4CF; Dist&acirc;ncias &mdash; Stage Out</div>
+  <div class="input-group">
+    <div class="input-label">Dist. m&aacute;x. &rarr; zona de carga</div>
+    <div class="input-row"><input type="number" id="dist_so_max" min="1"><span class="input-unit">m</span></div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">Dist. m&iacute;n. &rarr; zona de carga</div>
+    <div class="input-row"><input type="number" id="dist_so_min" min="1"><span class="input-unit">m</span></div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">Posi&ccedil;&otilde;es de HUs / caminh&atilde;o</div>
+    <div class="input-row"><input type="number" id="pos_hu_cam" min="1"><span class="input-unit">HUs</span></div>
+  </div>
+
+  <div class="section-label">&#x1F69B; Carga</div>
+  <div class="input-group">
+    <div class="input-label">% pacotes a granel no ve&iacute;culo</div>
+    <div class="input-row"><input type="number" id="pct_granel" min="0" max="100" step="1"><span class="input-unit">%</span></div>
+  </div>
+  <div class="input-group">
+    <div class="input-label">% pacotes em saca</div>
+    <div class="input-row"><input type="number" id="pct_saca_carga" min="0" max="100" step="1"><span class="input-unit">%</span></div>
+  </div>
+  <div class="alert-warning" id="pct-warning">
+    &#x26A0;&#xFE0F; % Granel + % Saca ultrapassa 100% — verifique os valores.
+  </div>
+
+</div>
+
+<!-- ============================================================
+     RESULTS
+     ============================================================ -->
+<div class="results-col">
+
+  <!-- Summary bar -->
+  <div class="summary-bar">
+    <div class="summary-item">
+      <div class="summary-label">Volume Total</div>
+      <div class="summary-value" id="s-vol">--</div>
+      <div class="summary-sub">pacotes</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">% Voluminosos</div>
+      <div class="summary-value" id="s-vol-pct">--</div>
+      <div class="summary-sub">do mix</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Gargalo Sorteable</div>
+      <div class="summary-value" id="s-bottleneck">--</div>
+      <div class="summary-sub">paq/h</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Posto gargalo</div>
+      <div class="summary-value" id="s-bottleneck-name" style="font-size:13px;padding-top:5px">--</div>
+      <div class="summary-sub">Sorteable</div>
+    </div>
+  </div>
+
+  <!-- Gargalo por Fluxo -->
+  <div class="fbn-block">
+    <div class="fbn-header">
+      <span style="font-size:16px">&#x26A1;</span>
+      <span class="fbn-title">Gargalo por Fluxo</span>
+    </div>
+    <div class="fbn-grid">
+      <div class="fbn-item">
+        <span class="flow-badge sorteable">&#x1F4E6; Sorteable</span>
+        <div class="fbn-val" id="fbn_sort">--</div>
+        <div class="fbn-unit">paq/h</div>
+        <div class="fbn-name" id="fbn_sort_name">--</div>
+      </div>
+      <div class="fbn-item">
+        <span class="flow-badge large">&#x1F4E6; Large</span>
+        <div class="fbn-val" id="fbn_large">--</div>
+        <div class="fbn-unit">paq/h</div>
+        <div class="fbn-name" id="fbn_large_name">--</div>
+      </div>
+      <div class="fbn-item">
+        <span class="flow-badge livianos">&#x2709;&#xFE0F; Livianos</span>
+        <div class="fbn-val" id="fbn_liv">--</div>
+        <div class="fbn-unit">paq/h</div>
+        <div class="fbn-name" id="fbn_liv_name">--</div>
+      </div>
+      <div class="fbn-item">
+        <span class="flow-badge oversizes">&#x1F4E6; Oversizes</span>
+        <div class="fbn-val" id="fbn_over">--</div>
+        <div class="fbn-unit">paq/h</div>
+        <div class="fbn-name" id="fbn_over_name">--</div>
+      </div>
+      <div class="fbn-item">
+        <span class="flow-badge dispatch">&#x1F69B; Despacho</span>
+        <div class="fbn-val" id="fbn_desp">--</div>
+        <div class="fbn-unit">paq/h</div>
+        <div class="fbn-name" id="fbn_desp_name">--</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SORTEABLE -->
+  <div class="flow-block">
+    <div class="flow-header open" onclick="toggleFlow(this)">
+      <span class="flow-badge sorteable">&#x1F4E6; Sorteable</span>
+      <span class="flow-title">Fluxo Principal &mdash; Pacotes Normais</span>
+      <span class="flow-chevron">&#x25BC;</span>
+    </div>
+    <div class="flow-body open">
+      <div class="process-row">
+        <div><div class="process-name">Stage In</div><div class="process-method">Movimento doca &rarr; buffer</div></div>
+        <select class="method-select" id="sel_stage_in" onchange="calc()">
+          <option value="si_man_s">Paleteira Manual &ndash; SIMPLES (&lt;500 kg)</option>
+          <option value="si_man_d">Paleteira Manual &ndash; DUPLA (&gt;500 kg)</option>
+          <option value="si_elec_camina" selected>Paleteira El&eacute;trica &ndash; Caminhando</option>
+          <option value="si_elec_sp">Paleteira El&eacute;trica SIMPLES &ndash; Parado</option>
+          <option value="si_elec_dp">Paleteira El&eacute;trica DOBLE &ndash; Parado</option>
+          <option value="si_elec_tp">Paleteira El&eacute;trica TRIPLA &ndash; Parado</option>
+          <option value="si_backer_s">Baker &ndash; &lt;200 kg</option>
+          <option value="si_backer_l">Baker &ndash; &gt;200 kg</option>
+          <option value="si_tugger">Tugger / Rebocador</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_stage_in">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type variable" id="type_stage_in">vari&aacute;vel</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Inhub Interno</div><div class="process-method">Descarrega e induz no fluxo</div></div>
+        <select class="method-select" id="sel_inhub_int" onchange="calc()">
+          <option value="409.4806752" selected>Descarregar e Induzir</option>
+          <option value="654.7930854">Bipear e Induzir Separando</option>
+          <option value="735.7268982">Bipear e Induzir Aleat&oacute;rio</option>
+          <option value="ihub_int_ap_isla">Com apoio &ndash; Ilha</option>
+          <option value="ihub_int_ap_lin">Com apoio &ndash; Linear</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_inhub_int">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type fixed" id="type_inhub_int">fixa</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Inhub Externo</div><div class="process-method">Recebe da doca externamente</div></div>
+        <select class="method-select" id="sel_inhub_ext" onchange="calc()">
+          <option value="426.4044979">Inhub DOCA &ndash; com apoio &ndash; Linear</option>
+          <option value="310.6756522">Inhub DOCA &ndash; sem apoio &ndash; Linear</option>
+          <option value="372.968577">Inhub DOCA &ndash; com apoio &ndash; Ilha</option>
+          <option value="298.2233919">Inhub DOCA &ndash; sem apoio &ndash; Ilha</option>
+          <option value="409.4806752" selected>Descarregar e Induzir</option>
+          <option value="654.7930854">Bipear e Induzir Separando</option>
+          <option value="735.7268982">Bipear e Induzir Aleat&oacute;rio</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_inhub_ext">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type fixed" id="type_inhub_ext">fixa</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Indu&ccedil;&atilde;o</div><div class="process-method">Coloca paq. no conveyor / flowrack</div></div>
+        <select class="method-select" id="sel_induccion" onchange="calc()">
+          <option value="836.0574873">Indu&ccedil;&atilde;o 90&deg; Com baker &ndash; Conveyor</option>
+          <option value="392.2455666">Indu&ccedil;&atilde;o 90&deg; &ndash; Sem conveyor</option>
+          <option value="836.0574873">Indu&ccedil;&atilde;o 90&deg; Baker &ndash; Tolva (Compact Sorter)</option>
+          <option value="549.9605556">Indu&ccedil;&atilde;o 90&deg; Baker &ndash; Raio X</option>
+          <option value="ind_flowrack_al" selected>Indu&ccedil;&atilde;o 90&deg; Baker &ndash; Flowrack manual Aleat&oacute;rio</option>
+          <option value="ind_flowrack_sep">Indu&ccedil;&atilde;o 90&deg; Baker &ndash; Flowrack manual Separando</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_induccion">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type fixed" id="type_induccion">fixa</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Pesca</div><div class="process-method">Retira paq. do conveyor para ilha</div></div>
+        <select class="method-select" id="sel_pesca" onchange="calc()">
+          <option value="537.6066612" selected>Pesca 180&deg; Flow Duplo (2x3)(2x2) &ndash; Conveyor</option>
+          <option value="394.9297341">Pesca Baker 180&deg; &ndash; Conveyor</option>
+          <option value="493.0733062">Pesca 90&deg; Fingers &ndash; Conveyor</option>
+          <option value="433.2575421">Pesca 90&deg; Fingers (x2) &ndash; Conveyor</option>
+          <option value="500.9929681">Pesca Baker &ndash; Conveyor &ndash; Separa&ccedil;&atilde;o</option>
+          <option value="194.7004106">Pesca 180&deg; &ndash; Flow 2x2 &ndash; Sem Conveyor</option>
+          <option value="240.610419">Pesca 180&deg; &ndash; Baker &ndash; Sem Conveyor</option>
+          <option value="234.2965107">Pesca 180&deg; &ndash; Fingers &ndash; Sem Conveyor</option>
+          <option value="238.0444553">Pesca 180&deg; &ndash; Flow 3x0,8 &ndash; Sem Conveyor</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_pesca">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type fixed" id="type_pesca">fixa</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Armado de HU</div><div class="process-method">Monta unidade de handling</div></div>
+        <select class="method-select" id="sel_armado_hu" onchange="calc()">
+          <option value="hu_4g_calc">1 Flow 2x2 &ndash; 4 pos GAYLORD</option>
+          <option value="hu_6g_calc">1 Flow 2x2 &ndash; 6 pos GAYLORD</option>
+          <option value="hu_8g_calc">2 Flow 2x3 &ndash; 8 pos GAYLORD</option>
+          <option value="hu_10g_calc">2 Flow 2x3 &ndash; 10 pos GAYLORD</option>
+          <option value="hu_4m_calc">1 Flow 2x2 &ndash; 4 pos MANGA</option>
+          <option value="hu_6m_calc" selected>1 Flow 2x2 &ndash; 6 pos MANGA</option>
+          <option value="hu_8m_calc">2 Flow 2x3 &ndash; 8 pos MANGA</option>
+          <option value="hu_10m_calc">2 Flow 2x3 &ndash; 10 pos MANGA</option>
+          <option value="303.16586">Montagem Flow 3x0,88 + Pallet</option>
+          <option value="397.0459779">Montagem Sorter + Gaylord</option>
+          <option value="532.5191707">Bipear e Separar Baker</option>
+          <option value="393.907563">Separar Baker + Montar Pallet</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_armado_hu">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type variable" id="type_armado_hu">vari&aacute;vel</div>
+        </div>
+      </div>
+      <!-- FIX — Armado Sacas incluído no bottleneck -->
+      <div class="process-row">
+        <div><div class="process-name">Armado HU Misto Sacas</div><div class="process-method">HU com mix de sacas</div></div>
+        <select class="method-select" id="sel_armado_sacas" onchange="calc()">
+          <option value="hu_4ms_calc">1 Flow 2x2 &ndash; 4 pos MISTO SACAS</option>
+          <option value="hu_6ms_calc" selected>1 Flow 2x2 &ndash; 6 pos MISTO SACAS</option>
+          <option value="hu_8ms_calc">2 Flow 2x3 &ndash; 8 pos MISTO SACAS</option>
+          <option value="hu_10ms_calc">2 Flow 2x3 &ndash; 10 pos MISTO SACAS</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_armado_sacas">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type variable" id="type_armado_sacas">vari&aacute;vel</div>
+        </div>
+      </div>
+      <!-- FIX — Goleiro incluído no bottleneck -->
+      <div class="process-row">
+        <div><div class="process-name">Goleiro</div><div class="process-method">Reinduz paq. do fim da esteira</div></div>
+        <select class="method-select" id="sel_goleiro" onchange="calc()">
+          <option value="1174.81203" selected>Goleiro &ndash; Reindução Baker Conveyor</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_goleiro">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type fixed" id="type_goleiro">fixa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LARGE -->
+  <div class="flow-block">
+    <div class="flow-header open" onclick="toggleFlow(this)">
+      <span class="flow-badge large">&#x1F4E6; Large</span>
+      <span class="flow-title">Fluxo Volumoso &mdash; Pacotes Large</span>
+      <span class="flow-chevron">&#x25BC;</span>
+    </div>
+    <div class="flow-body open">
+      <div class="process-row">
+        <div><div class="process-name">Separa&ccedil;&atilde;o</div><div class="process-method">Separa voluminosos do fluxo</div></div>
+        <select class="method-select" id="sel_separacion" onchange="calc()">
+          <option value="299.850075" selected>Separação de Volumoso com Baker</option>
+          <option value="263.5046113">Separação de Volumoso com Pallet</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_separacion">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type fixed" id="type_separacion">fixa</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">&Iacute;ndução Large</div><div class="process-method">Induz paq. volumoso na ilha</div></div>
+        <select class="method-select" id="sel_ind_large" onchange="calc()">
+          <option value="421.7096108">Indu&ccedil;&atilde;o 90&deg; Com Baker &ndash; 1 REP X ILHA</option>
+          <option value="523.0125523">Indu&ccedil;&atilde;o 90&deg; Motorizado Com Baker &ndash; 1 REP X ILHA</option>
+          <option value="198.1287837">Indu&ccedil;&atilde;o 90&deg; Com pallet &ndash; 1 REP X ILHA</option>
+          <option value="181.3105124" selected>Indu&ccedil;&atilde;o 90&deg; Motorizado com pallet &ndash; 1 REP X ILHA</option>
+          <option value="130.8403878">Indu&ccedil;&atilde;o 90&deg; Motorizado com pallet &ndash; 1 REP X 2 ILHA</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_ind_large">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type fixed" id="type_ind_large">fixa</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Pesca Large</div><div class="process-method">Retira paq. volumoso do flow</div></div>
+        <select class="method-select" id="sel_pesca_large" onchange="calc()">
+          <option value="414.9084919" selected>Pesca Flow Motorizado &ndash; 1 Canal</option>
+          <option value="153.8835594">Pesca Flow Manual &ndash; 1 Canal</option>
+          <option value="109.0254542">Pesca Flow Manual &ndash; 2 Canais</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_pesca_large">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type fixed" id="type_pesca_large">fixa</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Armado HU Large</div><div class="process-method">Monta pallet de volumosos</div></div>
+        <select class="method-select" id="sel_armado_large" onchange="calc()">
+          <option value="spp_vol_calc" selected>1 Ilha com Flow + Montar Pallet</option>
+          <option value="spp_vol_calc_buf">Buffer no Meio Baker + Montar Pallet</option>
+          <option value="spp_vol_calc_flow">Flowrack Motorizado + Montar Pallet</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_armado_large">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type variable" id="type_armado_large">vari&aacute;vel</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVIANOS -->
+  <div class="flow-block">
+    <div class="flow-header open" onclick="toggleFlow(this)">
+      <span class="flow-badge livianos">&#x2709;&#xFE0F; Livianos</span>
+      <span class="flow-title">Mercado Pago / Livianos</span>
+      <span class="flow-chevron">&#x25BC;</span>
+    </div>
+    <div class="flow-body open">
+      <div class="process-row">
+        <div><div class="process-name">Inhub Livianos</div><div class="process-method">Recebe cart&otilde;es e pacotes leves</div></div>
+        <select class="method-select" id="sel_inhub_liv" onchange="calc()">
+          <option value="410.9342938">Inhub Livianos &ndash; Misto</option>
+          <option value="7850.275608" selected>Inhub Cartões (Mercado Pago)</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_inhub_liv">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type fixed" id="type_inhub_liv">fixa</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Armado HU Livianos</div><div class="process-method">Monta HU de pacotes leves</div></div>
+        <select class="method-select" id="sel_armado_liv" onchange="calc()">
+          <option value="545.7289212" selected>Armado de HU Livianos</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_armado_liv">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type fixed" id="type_armado_liv">fixa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERSIZES -->
+  <div class="flow-block">
+    <div class="flow-header open" onclick="toggleFlow(this)">
+      <span class="flow-badge oversizes">&#x1F4E6; Oversizes</span>
+      <span class="flow-title">Fluxo Oversizes</span>
+      <span class="flow-chevron">&#x25BC;</span>
+    </div>
+    <div class="flow-body open">
+      <div class="process-row">
+        <div><div class="process-name">Movimenta&ccedil;&atilde;o Oversizes</div><div class="process-method">Move paq. oversize com pat&iacute;n</div></div>
+        <select class="method-select" id="sel_mov_over" onchange="calc()">
+          <option value="mov_over_calc" selected>Movimenta&ccedil;&atilde;o &ndash; Pat&iacute;n Manual</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_mov_over">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type variable" id="type_mov_over">vari&aacute;vel</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Armado HU Oversizes</div><div class="process-method">Sorteio e montagem manual</div></div>
+        <select class="method-select" id="sel_armado_over" onchange="calc()">
+          <option value="sorteo_over_calc" selected>Sorteio &ndash; Manual</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_armado_over">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type variable" id="type_armado_over">vari&aacute;vel</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESPACHO -->
+  <div class="flow-block">
+    <div class="flow-header open" onclick="toggleFlow(this)">
+      <span class="flow-badge dispatch">&#x1F69B; Despacho</span>
+      <span class="flow-title">Prepara&ccedil;&atilde;o de Carga e Despacho</span>
+      <span class="flow-chevron">&#x25BC;</span>
+    </div>
+    <div class="flow-body open">
+      <div class="process-row">
+        <div><div class="process-name">Empilhamento de Mangas</div><div class="process-method">Empilha mangas antes da carga</div></div>
+        <select class="method-select" id="sel_apilamiento" onchange="calc()">
+          <option value="apil_trans" selected>Empilhar Mangas (Transpaleteira El&eacute;trica)</option>
+          <option value="apil_auto">Empilhar Mangas (Autoelevador)</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_apilamiento">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type fixed" id="type_apilamiento">fixa</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Pallet High &ndash; Pacotes</div><div class="process-method">Empilha pacotes em pallet alto</div></div>
+        <select class="method-select" id="sel_pallet_high_paq" onchange="calc()">
+          <option value="ph_paq_abaixo_calc" selected>Pallet High PAQUETE &ndash; REP Abaixo da escada</option>
+          <option value="531.462585">Pallet High PAQUETE &ndash; REP Sobre a escada</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_pallet_high_paq">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type variable" id="type_pallet_high_paq">vari&aacute;vel</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Pallet High &ndash; Sacas</div><div class="process-method">Empilha sacas em pallet alto</div></div>
+        <select class="method-select" id="sel_pallet_high_saca" onchange="calc()">
+          <option value="ph_saca_abaixo_calc" selected>Pallet High SACA &ndash; REP Abaixo da escada</option>
+          <option value="ph_saca_sobre_calc">Pallet High SACA &ndash; REP Sobre a escada</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_pallet_high_saca">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type variable" id="type_pallet_high_saca">vari&aacute;vel</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Stage Out</div><div class="process-method">Move HUs at&eacute; zona de carga</div></div>
+        <select class="method-select" id="sel_stage_out" onchange="calc()">
+          <option value="so_sz_pm_s">Paleteira Manual &ndash; SIMPLES com Stage Zone</option>
+          <option value="so_sz_pm_d">Paleteira Manual &ndash; DUPLA com Stage Zone</option>
+          <option value="so_pm_s">Paleteira Manual &ndash; SIMPLES</option>
+          <option value="so_pm_d" selected>Paleteira Manual &ndash; DUPLA</option>
+          <option value="so_sz_pe_cam">Paleteira El&eacute;trica &ndash; Caminhando com Stage Zone</option>
+          <option value="so_sz_pe_par">Paleteira El&eacute;trica &ndash; Parado com Stage Zone</option>
+          <option value="so_pe_cam">Paleteira El&eacute;trica &ndash; Caminhando</option>
+          <option value="so_pe_s">Paleteira El&eacute;trica SIMPLES &ndash; Parado</option>
+          <option value="so_pe_d">Paleteira El&eacute;trica DOBLE &ndash; Parado</option>
+          <option value="so_pe_t">Paleteira El&eacute;trica TRIPLA &ndash; Parado</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_stage_out">--</div>
+          <div class="cap-unit">paq/h</div>
+          <div class="cap-type variable" id="type_stage_out">vari&aacute;vel</div>
+        </div>
+      </div>
+      <div class="process-row">
+        <div><div class="process-name">Carga</div><div class="process-method">Carrega caminh&atilde;o de sa&iacute;da</div></div>
+        <select class="method-select" id="sel_carga" onchange="calc()">
+          <option value="ca_pm" selected>Carga en DOCA &ndash; Paleteira Manual</option>
+          <option value="ca_pe_d">Carga en DOCA &ndash; Paleteira El&eacute;trica Desembarcada</option>
+          <option value="ca_pe_e">Carga en DOCA &ndash; Paleteira El&eacute;trica Embarcada</option>
+          <option value="ca_int_pe_e">Carga Interna &ndash; Autoelevador Embarcado + Paleteira Manual</option>
+          <option value="ca_int_pe_d">Carga Interna &ndash; Autoelevador Desembarcado + Paleteira Manual</option>
+          <!-- granel: usa pos_HUs × %granel × SPP_vol × 0,85 (CARGA!C241) -->
+          <option value="granel_calc">Carga en DOCA GRANEL &ndash; Paleteira Manual</option>
+        </select>
+        <div class="cap-badge">
+          <div class="cap-value" id="cap_carga">--</div>
+          <div class="cap-unit" id="unit_carga">paq/h</div>
+          <div class="cap-type variable" id="type_carga">vari&aacute;vel</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-note">
+    <span>&#x1F4A1;</span>
+    <span>Processos com <strong>capacidade vari&aacute;vel</strong> s&atilde;o recalculados automaticamente quando voc&ecirc; altera os inputs. Processos com <strong>capacidade fixa</strong> usam o tempo de ciclo MTM definido. A <strong>Carga Granel</strong> exibe produtividade em <strong>cam/hh</strong> (caminh&otilde;es por hora-homem), calculada dinamicamente conforme CARGA!F213 do Excel.</span>
+  </div>
+</div>
+</div>
+
+<footer>
+  <div class="footer-brand">Mercado Libre &mdash; MTM</div>
+  <div class="footer-note">Calculadora de Produtividade &middot; Cross Docking XD &middot; v2.1 (corrigida)</div>
+</footer>
+
+<script>
+/* ============================================================
+   CONSTANTES
+   ============================================================ */
+var BASE_DIST               = 50;
+var SI_ELEC_CAMINA_BASE     = 6782.953624;
+var SI_TUGGER_BASE          = 5600.45879;
+var SI_TUGGER_BASE_BACKERS  = 5;
+var SI_TUGGER_BASE_PAQ      = 150;
+// Stage Out — base capacidad en pallets/h (de STAGE OUT sheet)
+// CODIGOS: cap_paq = base_pal_h × AVERAGE(spp_sort, spp_vol)
+var SO_SZ_PM_S              = 21.21640736;   // PM SIMPLES com Stage Zone
+var SO_SZ_PM_D              = 30.74576938;   // PM DOBLE com Stage Zone
+var SO_PM_S                 = 21.78585952;   // PM SIMPLES
+var SO_PM_D                 = 31.33931705;   // PM DOBLE
+var SO_SZ_PE_CAM            = 22.69206564;   // PE Camina com Stage Zone
+var SO_SZ_PE_PAR            = 34.7190075;    // PE Parado com Stage Zone
+var SO_PE_CAM               = 23.3447048;    // PE Camina
+var SO_PE_S                 = 36.27043234;   // PE SIMPLES Parado
+var SO_PE_D                 = 61.87792064;   // PE DOBLE Parado
+var SO_PE_T                 = 77.66976885;   // PE TRIPLA Parado
+// Carga — base capacidad en pallets/h (de CARGA sheet)
+// CODIGOS: cap_paq = base_pal_h × (spp_sort×0.85 + spp_vol×0.15)
+var CA_PM                   = 29.49941462;   // PM Desembarcado
+var CA_PE_D                 = 44.97580306;   // PE Desembarcado
+var CA_PE_E                 = 58.92042085;   // PE Embarcado
+var CA_INT_PE_E             = 41.82909527;   // Carga Interna PE Embarcado
+var CA_INT_PE_D             = 37.25589321;   // Carga Interna PE Desembarcado
+// Apilamiento — base capacidad en pilas/h (de PREPARACIÓN DE CARGA sheet)
+// CODIGOS: cap_paq = base_pila_h × 3 × spp_manga
+var APIL_AUTO               = 15.81973656;   // Autoelevado
+var APIL_TRANS              = 12.68443164;   // Transpaletera eléctrica
+var ARM_LARGE_FLOW_BASE     = 59.93786441;
+var ARM_LARGE_BUF_BASE      = 83.70971702;
+var ARM_LARGE_FLOW_MOT_BASE = 58.72237954;
+var ARM_LARGE_BASE_SPP      = 15;
+var OVER_FIXED_CICLO        = 33.2;
+var OVER_K_CLOSE            = 8.0;
+var MANGA_FIXED_CICLO       = 9.63 - 3.5/150;
+var MANGA_K_CLOSE           = 3.5;
+var SACAS_FIXED_CICLO       = 3600/286.7112764 - (3.5/25);
+var SACAS_K_CLOSE           = 3.5;
+// Inhub Interno con apoyo — formula: 3600 / ((fixed + 10.98/paq_baker_sort + 10.98/paq_baker_vol) × 1.12)
+// Derived from INHUB sheet Seg values at B13=80 (sort) and B14=15 (vol)
+var IHUB_INT_ISLA_FIXED      = 6.335864;   // walk dist isla @ 4 ondas
+var IHUB_INT_LIN_FIXED       = 5.462864;   // walk dist lineal @ 4 ondas
+var IHUB_INT_BAKER_COEFF     = 10.98;      // same for sort and vol (AM3+KA+WFA+PA × 3 occurrences)
+// Induccion Flowrack — formula: 3600 / ((fixed + coeff/paq_baker_sort) × 1.12)
+var IND_FLOW_AL_FIXED        = 4.176000;   // Flowrack Aleatorio fixed part
+var IND_FLOW_AL_COEFF        = 18.9360;    // Flowrack Aleatorio backer coeff
+var IND_FLOW_SEP_FIXED       = 5.796000;   // Flowrack Separando fixed part
+var IND_FLOW_SEP_COEFF       = 16.6860;    // Flowrack Separando backer coeff
+// FIX — GRANEL_CAM_HH * paq_lh = (cam/hh) * (paq/cam) = paq/h (correto)
+var GRANEL_CAM_HH           = 0.4648562936;
+
+/* Sem valores padrão — campos vazios para preenchimento do usuário */
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+function getNum(id) {
+  var el = document.getElementById(id);
+  if (!el || el.value === '') return NaN;
+  var v = +el.value;
+  return isNaN(v) ? NaN : v;
+}
+
+function getInputs() {
+  return {
+    vol_total:       getNum('vol_total'),
+    pct_vol:         getNum('pct_vol') / 100,
+    paq_lh:          getNum('paq_lh'),
+    ondas:           getNum('ondas'),
+    subcas:          getNum('subcas'),
+    dist_doca_buf:   getNum('dist_doca_buffer'),
+    dist_buf_vol:    getNum('dist_buf_vol'),
+    backers_comboio: getNum('backers_comboio'),
+    paq_pallet_sort: getNum('paq_pallet_sort'),
+    paq_baker_sort:  getNum('paq_baker_sort'),
+    spp_sort:        getNum('spp_sort'),
+    spp_manga:       getNum('spp_manga'),
+    spp_saca:        getNum('spp_saca'),
+    paq_pallet_vol:  getNum('paq_pallet_vol'),
+    paq_baker_vol:   getNum('paq_baker_vol'),
+    spp_vol:         getNum('spp_vol'),
+    hus_ilha_large:  getNum('hus_ilha_large'),
+    spp_over:        getNum('spp_over'),
+    subcas_calle_over: getNum('subcas_calle_over'),
+    dist_so_max:     getNum('dist_so_max'),
+    dist_so_min:     getNum('dist_so_min'),
+    pos_hu_cam:      getNum('pos_hu_cam'),
+    pct_granel:      getNum('pct_granel') / 100,
+    pct_saca_carga:  getNum('pct_saca_carga') / 100,
+  };
+}
+
+function resolveCapacity(selId, inp) {
+  var sel = document.getElementById(selId);
+  var val = sel.value;
+  var num = parseFloat(val);
+  if (!isNaN(num)) return { cap: num, type: 'fixed' };
+  if (val === 'NA') return { cap: null, type: 'conditional' };
+
+  // Stage In — fórmula derivada da planilha STAGE IN com B64=10 (fixo), B65=dist/2, B66=dist
+  // cap = n_pallets × 3600 / ((fixed_sum + var_coeff × dist) × 1.12) × multiplicador
+  // Todos os modos dependem de dist_doca_buf (= INPUTS!B11 = DATOS GENERALES MTM B66)
+  // si_tugger usa rotas B71-B73 (internas, fixas) → capacidade fixa independente de dist
+  if (val === 'si_man_s') {
+    if (isNaN(inp.dist_doca_buf) || isNaN(inp.paq_pallet_sort)) return { cap: null, type: 'variable' };
+    return { cap: inp.paq_pallet_sort * 3600 / ((53.22 + 0.99 * inp.dist_doca_buf) * 1.12), type: 'variable' };
+  }
+  if (val === 'si_man_d') {
+    if (isNaN(inp.dist_doca_buf) || isNaN(inp.paq_pallet_sort)) return { cap: null, type: 'variable' };
+    return { cap: inp.paq_pallet_sort * 2 * 3600 / ((104.328 + 1.08 * inp.dist_doca_buf) * 1.12), type: 'variable' };
+  }
+  if (val === 'si_elec_camina') {
+    if (isNaN(inp.dist_doca_buf) || isNaN(inp.paq_pallet_sort)) return { cap: null, type: 'variable' };
+    return { cap: inp.paq_pallet_sort * 3600 / ((47.5524 + 0.94446 * inp.dist_doca_buf) * 1.12), type: 'variable' };
+  }
+  if (val === 'si_elec_sp') {
+    if (isNaN(inp.dist_doca_buf) || isNaN(inp.paq_pallet_sort)) return { cap: null, type: 'variable' };
+    return { cap: inp.paq_pallet_sort * 3600 / ((34.0776 + 0.57024 * inp.dist_doca_buf) * 1.12), type: 'variable' };
+  }
+  if (val === 'si_elec_dp') {
+    if (isNaN(inp.dist_doca_buf) || isNaN(inp.spp_sort) || isNaN(inp.spp_vol)) return { cap: null, type: 'variable' };
+    return { cap: (inp.spp_sort + inp.spp_vol) / 2 * 2 * 3600 / ((49.3488 + 0.57024 * inp.dist_doca_buf) * 1.12), type: 'variable' };
+  }
+  if (val === 'si_elec_tp') {
+    if (isNaN(inp.dist_doca_buf) || isNaN(inp.spp_sort) || isNaN(inp.spp_vol)) return { cap: null, type: 'variable' };
+    return { cap: (inp.spp_sort + inp.spp_vol) / 2 * 3 * 3600 / ((69.6096 + 0.57024 * inp.dist_doca_buf) * 1.12), type: 'variable' };
+  }
+  if (val === 'si_backer_s') {
+    if (isNaN(inp.dist_doca_buf) || isNaN(inp.paq_baker_sort)) return { cap: null, type: 'variable' };
+    return { cap: inp.paq_baker_sort * 3600 / ((24.996 + 0.990 * inp.dist_doca_buf) * 1.12), type: 'variable' };
+  }
+  if (val === 'si_backer_l') {
+    if (isNaN(inp.dist_doca_buf) || isNaN(inp.paq_baker_sort)) return { cap: null, type: 'variable' };
+    return { cap: inp.paq_baker_sort * 3600 / ((37.512 + 1.08 * inp.dist_doca_buf) * 1.12), type: 'variable' };
+  }
+  if (val === 'si_tugger') {
+    return { cap: 5654.637368, type: 'fixed' };
+  }
+  // Stage Out — fórmula: base_pal_h × AVERAGE(spp_sort, spp_vol)
+  var SO_KEYS = {
+    so_sz_pm_s: SO_SZ_PM_S, so_sz_pm_d: SO_SZ_PM_D,
+    so_pm_s: SO_PM_S, so_pm_d: SO_PM_D,
+    so_sz_pe_cam: SO_SZ_PE_CAM, so_sz_pe_par: SO_SZ_PE_PAR,
+    so_pe_cam: SO_PE_CAM, so_pe_s: SO_PE_S,
+    so_pe_d: SO_PE_D, so_pe_t: SO_PE_T
+  };
+  if (SO_KEYS.hasOwnProperty(val)) {
+    if (isNaN(inp.spp_sort) || isNaN(inp.spp_vol)) return { cap: null, type: 'variable' };
+    return { cap: SO_KEYS[val] * (inp.spp_sort + inp.spp_vol) / 2, type: 'variable' };
+  }
+  // Carga — fórmula: base_pal_h × (spp_sort×0.85 + spp_vol×0.15)
+  var CA_KEYS = {
+    ca_pm: CA_PM, ca_pe_d: CA_PE_D, ca_pe_e: CA_PE_E,
+    ca_int_pe_e: CA_INT_PE_E, ca_int_pe_d: CA_INT_PE_D
+  };
+  if (CA_KEYS.hasOwnProperty(val)) {
+    if (isNaN(inp.spp_sort) || isNaN(inp.spp_vol)) return { cap: null, type: 'variable' };
+    return { cap: CA_KEYS[val] * (inp.spp_sort * 0.85 + inp.spp_vol * 0.15), type: 'variable' };
+  }
+  // Apilamiento — fórmula: base_pila_h × 3 × spp_manga
+  var APIL_KEYS = { apil_auto: APIL_AUTO, apil_trans: APIL_TRANS };
+  if (APIL_KEYS.hasOwnProperty(val)) {
+    if (isNaN(inp.spp_manga)) return { cap: null, type: 'variable' };
+    return { cap: APIL_KEYS[val] * 3 * inp.spp_manga, type: 'variable' };
+  }
+  if (val === 'spp_vol_calc') {
+    if (isNaN(inp.spp_vol)) return { cap: null, type: 'variable' };
+    var k = (3600/ARM_LARGE_FLOW_BASE)*0.3, fixed = 3600/ARM_LARGE_FLOW_BASE - k/ARM_LARGE_BASE_SPP;
+    return { cap: 3600 / (fixed + k/inp.spp_vol), type: 'variable' };
+  }
+  if (val === 'spp_vol_calc_buf') {
+    if (isNaN(inp.spp_vol)) return { cap: null, type: 'variable' };
+    var k2 = (3600/ARM_LARGE_BUF_BASE)*0.3, f2 = 3600/ARM_LARGE_BUF_BASE - k2/ARM_LARGE_BASE_SPP;
+    return { cap: 3600 / (f2 + k2/inp.spp_vol), type: 'variable' };
+  }
+  if (val === 'spp_vol_calc_flow') {
+    if (isNaN(inp.spp_vol)) return { cap: null, type: 'variable' };
+    var k3 = (3600/ARM_LARGE_FLOW_MOT_BASE)*0.3, f3 = 3600/ARM_LARGE_FLOW_MOT_BASE - k3/ARM_LARGE_BASE_SPP;
+    return { cap: 3600 / (f3 + k3/inp.spp_vol), type: 'variable' };
+  }
+  if (val === 'mov_over_calc') {
+    // CODIGOS R88: E1198 × spp_over; E1198 = 3600/((50.4 + 0.98175*subcas_over)*1.15)
+    if (isNaN(inp.spp_over) || isNaN(inp.subcas_calle_over)) return { cap: null, type: 'variable' };
+    return { cap: inp.spp_over * 3600 / ((50.4 + 0.98175 * inp.subcas_calle_over) * 1.15), type: 'variable' };
+  }
+  // Armado HU GAYLORD — cap = 3600/((fixed + 68.4/spp_sort) × 1.12)
+  var HU_GAYLORD = { hu_4g_calc: 8.4744, hu_6g_calc: 8.8584, hu_8g_calc: 8.9284, hu_10g_calc: 9.6784 };
+  if (HU_GAYLORD.hasOwnProperty(val)) {
+    if (isNaN(inp.spp_sort)) return { cap: null, type: 'variable' };
+    return { cap: 3600 / ((HU_GAYLORD[val] + 68.4 / inp.spp_sort) * 1.12), type: 'variable' };
+  }
+  // Armado HU MANGA — cap = 3600/((fixed + 15.48/spp_manga) × 1.12)
+  var HU_MANGA = { hu_4m_calc: 8.1144, hu_6m_calc: 8.4984, hu_8m_calc: 8.2884, hu_10m_calc: 9.6684 };
+  if (HU_MANGA.hasOwnProperty(val)) {
+    if (isNaN(inp.spp_manga)) return { cap: null, type: 'variable' };
+    return { cap: 3600 / ((HU_MANGA[val] + 15.48 / inp.spp_manga) * 1.12), type: 'variable' };
+  }
+  // Armado HU MISTO SACAS — cap = 3600/((N_fixed + N_var_coeff/spp_saca) × 1.12)
+  // N_fixed = SUM of rows where J is constant; N_var_coeff = sum(N_saca_rows) × spp_saca_ref
+  // Verified: hu_6ms SUM(N119:N164) decomposed; hu_8ms SUM(N169:N214) decomposed
+  // Both coeff_saca = 9.0 (same 15 saca-closure operations in each block)
+  var HU_MIXTO = { hu_4ms_calc: [11.299680, 6.192], hu_6ms_calc: [10.872927, 9.0], hu_8ms_calc: [11.581677, 9.0], hu_10ms_calc: [11.523180, 9.0] };
+  if (HU_MIXTO.hasOwnProperty(val)) {
+    if (isNaN(inp.spp_saca)) return { cap: null, type: 'variable' };
+    return { cap: 3600 / ((HU_MIXTO[val][0] + HU_MIXTO[val][1] / inp.spp_saca) * 1.12), type: 'variable' };
+  }
+  // Sorteo Oversizes — cap = 3600/((17.496 + 1.7595*subcas_over + 103.14/spp_over) × 1.15)
+  if (val === 'sorteo_over_calc') {
+    if (isNaN(inp.spp_over) || isNaN(inp.subcas_calle_over)) return { cap: null, type: 'variable' };
+    return { cap: 3600 / ((17.496 + 1.7595 * inp.subcas_calle_over + 103.14 / inp.spp_over) * 1.15), type: 'variable' };
+  }
+  // Pallet High PAQ ABAIXO — cap = 3600/((7.842 + 32.4/spp_saca + 7.74/(spp_saca+spp_sort)) × 1.12)
+  if (val === 'ph_paq_abaixo_calc') {
+    if (isNaN(inp.spp_saca) || isNaN(inp.spp_sort)) return { cap: null, type: 'variable' };
+    return { cap: 3600 / ((7.842 + 32.4 / inp.spp_saca + 7.74 / (inp.spp_saca + inp.spp_sort)) * 1.12), type: 'variable' };
+  }
+  // Pallet High SACA ABAIXO — cap = 3600/((26.9784/spp_saca + 32.4/(spp_saca+20)) × 1.15)
+  if (val === 'ph_saca_abaixo_calc') {
+    if (isNaN(inp.spp_saca)) return { cap: null, type: 'variable' };
+    return { cap: 3600 / ((26.9784 / inp.spp_saca + 32.4 / (inp.spp_saca + 20)) * 1.15), type: 'variable' };
+  }
+  // Pallet High SACA SOBRE — cap = 3600/((0.2655 + 13.77/spp_saca + 7.92/(spp_saca+20)) × 1.15)
+  if (val === 'ph_saca_sobre_calc') {
+    if (isNaN(inp.spp_saca)) return { cap: null, type: 'variable' };
+    return { cap: 3600 / ((0.2655 + 13.77 / inp.spp_saca + 7.92 / (inp.spp_saca + 20)) * 1.15), type: 'variable' };
+  }
+  // granel_calc: CODIGOS!E27 = '=CARGA!F213'  (sem multiplicação — unidade cam/hh)
+  // INPUTS!I41 = "Productividad de carga (camion/hh)" — saída é cam/h, não paq/h
+  // G213 = G_sum × 1.15 (fator cansaço 15%)
+  // G_sum reconstruído da aba CARGA (G215:G268), coeficientes verificados no Excel:
+  //   fixed=5.4, pal_slot=95.298/slot, granel_pkg=15.5256/pkg, escada=7.2/esc, saca=7.2/saca, maderas=208.75/mad
+  //   → simplificado: coef_nongranel=65.958+29.340 distribuídos por slot, coef_granel=15.5256, coef_saca=7.2
+  if (val === 'granel_calc') {
+    if (isNaN(inp.pos_hu_cam) || isNaN(inp.pct_granel) || isNaN(inp.spp_vol) ||
+        isNaN(inp.pct_saca_carga) || isNaN(inp.spp_saca)) return { cap: null, type: 'variable' };
+    var paq_granel_cam = inp.pos_hu_cam * inp.pct_granel * inp.spp_vol * 0.85;
+    var G_sum = 494.810989
+              + 65.958000 * inp.pos_hu_cam * (1 - inp.pct_granel)
+              + 29.340000 * inp.pos_hu_cam * inp.pct_granel
+              + 15.525600 * paq_granel_cam
+              + 7.200000  * inp.pos_hu_cam * inp.pct_saca_carga * inp.spp_saca;
+    var G213 = G_sum * 1.15;
+    return { cap: 3600 / G213, type: 'variable' };  // = CARGA!F213 = CODIGOS!E27 (cam/hh)
+  }
+  // Inhub Interno con apoyo: 3600 / ((fixed + 10.98/paq_baker_sort + 10.98/paq_baker_vol) × 1.12)
+  if (val === 'ihub_int_ap_isla') {
+    if (isNaN(inp.paq_baker_sort) || isNaN(inp.paq_baker_vol)) return { cap: null, type: 'variable' };
+    var sum_isla = IHUB_INT_ISLA_FIXED + IHUB_INT_BAKER_COEFF/inp.paq_baker_sort + IHUB_INT_BAKER_COEFF/inp.paq_baker_vol;
+    return { cap: 3600 / (sum_isla * 1.12), type: 'variable' };
+  }
+  if (val === 'ihub_int_ap_lin') {
+    if (isNaN(inp.paq_baker_sort) || isNaN(inp.paq_baker_vol)) return { cap: null, type: 'variable' };
+    var sum_lin = IHUB_INT_LIN_FIXED + IHUB_INT_BAKER_COEFF/inp.paq_baker_sort + IHUB_INT_BAKER_COEFF/inp.paq_baker_vol;
+    return { cap: 3600 / (sum_lin * 1.12), type: 'variable' };
+  }
+  // Induccion Flowrack: 3600 / ((fixed + coeff/paq_baker_sort) × 1.12)
+  if (val === 'ind_flowrack_al') {
+    if (isNaN(inp.paq_baker_sort)) return { cap: null, type: 'variable' };
+    return { cap: 3600 / ((IND_FLOW_AL_FIXED + IND_FLOW_AL_COEFF/inp.paq_baker_sort) * 1.12), type: 'variable' };
+  }
+  if (val === 'ind_flowrack_sep') {
+    if (isNaN(inp.paq_baker_sort)) return { cap: null, type: 'variable' };
+    return { cap: 3600 / ((IND_FLOW_SEP_FIXED + IND_FLOW_SEP_COEFF/inp.paq_baker_sort) * 1.12), type: 'variable' };
+  }
+  return { cap: null, type: 'fixed' };
+}
+
+function fmt(v) {
+  if (v === null || v === undefined || isNaN(v) || !isFinite(v)) return '--';
+  if (v < 1) return v.toFixed(6).replace('.', ',');
+  return Math.round(v).toLocaleString('pt-BR');
+}
+
+function setResult(capId, typeId, result) {
+  var el = document.getElementById(capId);
+  var te = document.getElementById(typeId);
+  if (result.cap === null) {
+    el.textContent = 'N/A'; el.classList.add('na');
+    te.textContent = 'config.'; te.className = 'cap-type conditional';
+  } else {
+    el.textContent = fmt(result.cap); el.classList.remove('na');
+    te.textContent = result.type === 'fixed' ? 'fixa' : 'variável';
+    te.className = 'cap-type ' + result.type;
+  }
+  return result.cap;
+}
+
+function selName(selId) {
+  var sel = document.getElementById(selId);
+  if (!sel) return '--';
+  return sel.options[sel.selectedIndex].text.split('–')[0].trim().substring(0, 22);
+}
+
+/* ============================================================
+   CALC PRINCIPAL
+   ============================================================ */
+function calc() {
+  var inp = getInputs();
+
+  /* Validação pct_granel + pct_saca */
+  var pctGranel = isNaN(inp.pct_granel) ? 0 : inp.pct_granel;
+  var pctSaca   = isNaN(inp.pct_saca_carga) ? 0 : inp.pct_saca_carga;
+  document.getElementById('pct-warning').style.display =
+    (pctGranel + pctSaca > 1) ? 'flex' : 'none';
+
+  /* Summary */
+  document.getElementById('s-vol').textContent     = isNaN(inp.vol_total)  ? '--' : Math.round(inp.vol_total).toLocaleString('pt-BR');
+  document.getElementById('s-vol-pct').textContent = isNaN(inp.pct_vol)    ? '--' : (inp.pct_vol*100).toFixed(0)+'%';
+
+  /* Lista de processos */
+  var PROCS = [
+    ['sel_stage_in',        'cap_stage_in',        'type_stage_in'],
+    ['sel_inhub_int',       'cap_inhub_int',        'type_inhub_int'],
+    ['sel_inhub_ext',       'cap_inhub_ext',        'type_inhub_ext'],
+    ['sel_induccion',       'cap_induccion',        'type_induccion'],
+    ['sel_pesca',           'cap_pesca',            'type_pesca'],
+    ['sel_armado_hu',       'cap_armado_hu',        'type_armado_hu'],
+    ['sel_armado_sacas',    'cap_armado_sacas',     'type_armado_sacas'],
+    ['sel_goleiro',         'cap_goleiro',          'type_goleiro'],
+    ['sel_separacion',      'cap_separacion',       'type_separacion'],
+    ['sel_ind_large',       'cap_ind_large',        'type_ind_large'],
+    ['sel_pesca_large',     'cap_pesca_large',      'type_pesca_large'],
+    ['sel_armado_large',    'cap_armado_large',     'type_armado_large'],
+    ['sel_inhub_liv',       'cap_inhub_liv',        'type_inhub_liv'],
+    ['sel_armado_liv',      'cap_armado_liv',       'type_armado_liv'],
+    ['sel_mov_over',        'cap_mov_over',         'type_mov_over'],
+    ['sel_armado_over',     'cap_armado_over',      'type_armado_over'],
+    ['sel_apilamiento',     'cap_apilamiento',      'type_apilamiento'],
+    ['sel_pallet_high_paq', 'cap_pallet_high_paq',  'type_pallet_high_paq'],
+    ['sel_pallet_high_saca','cap_pallet_high_saca',  'type_pallet_high_saca'],
+    ['sel_stage_out',       'cap_stage_out',        'type_stage_out'],
+    ['sel_carga',           'cap_carga',            'type_carga'],
+  ];
+
+  /* Calcula e renderiza capacidades; coleta em mapa */
+  var caps = {};
+  PROCS.forEach(function(p) {
+    var result = resolveCapacity(p[0], inp);
+    var v = setResult(p[1], p[2], result);
+    caps[p[1]] = v;
+  });
+
+  /* Unidade da Carga: granel = cam/hh, demais = paq/h */
+  var selCarga = document.getElementById('sel_carga');
+  var unitCarga = document.getElementById('unit_carga');
+  if (selCarga && unitCarga) {
+    unitCarga.textContent = (selCarga.value === 'granel_calc') ? 'cam/hh' : 'paq/h';  // CODIGOS!E27=CARGA!F213 (cam/hh)
+  }
+
+  /* FIX — Gargalo Sorteable agora inclui armado_sacas e goleiro
+     Só exibe quando vol_total está preenchido — sem volume não há gargalo */
+  var temVolume = !isNaN(inp.vol_total) && inp.vol_total > 0;
+
+  var SORT_IDS = ['cap_stage_in','cap_inhub_int','cap_inhub_ext','cap_induccion',
+                  'cap_pesca','cap_armado_hu','cap_armado_sacas','cap_goleiro'];
+  var minSort = Infinity, minSortSel = '--';
+  if (temVolume) {
+    SORT_IDS.forEach(function(id) {
+      var v = caps[id];
+      if (v !== null && !isNaN(v) && v < minSort) {
+        minSort = v;
+        minSortSel = selName('sel_' + id.replace('cap_',''));
+      }
+    });
+  }
+  document.getElementById('s-bottleneck').textContent      = temVolume && minSort < Infinity ? fmt(minSort) : '--';
+  document.getElementById('s-bottleneck-name').textContent = temVolume && minSort < Infinity ? minSortSel  : '--';
+
+  /* FIX — Gargalo por fluxo: só exibe com volume preenchido */
+  var FLOWS = [
+    { key:'sort',  ids: SORT_IDS },
+    { key:'large', ids: ['cap_separacion','cap_ind_large','cap_pesca_large','cap_armado_large'] },
+    { key:'liv',   ids: ['cap_inhub_liv','cap_armado_liv'] },
+    { key:'over',  ids: ['cap_mov_over','cap_armado_over'] },
+    { key:'desp',  ids: ['cap_apilamiento','cap_pallet_high_paq','cap_pallet_high_saca','cap_stage_out','cap_carga'] },
+  ];
+  FLOWS.forEach(function(flow) {
+    var minC = Infinity, minN = '--';
+    if (temVolume) {
+      flow.ids.forEach(function(id) {
+        var v = caps[id];
+        if (v !== null && !isNaN(v) && v < minC) {
+          minC = v;
+          minN = selName('sel_' + id.replace('cap_',''));
+        }
+      });
+    }
+    var ve = document.getElementById('fbn_' + flow.key);
+    var ne = document.getElementById('fbn_' + flow.key + '_name');
+    if (ve) ve.textContent = temVolume && minC < Infinity ? fmt(minC) : '--';
+    if (ne) ne.textContent = temVolume && minC < Infinity ? minN : '--';
+  });
+}
+
+function toggleFlow(header) {
+  header.classList.toggle('open');
+  header.nextElementSibling.classList.toggle('open');
+}
+
+/* Inicializa sem valores — aguarda preenchimento do usuário */
+(function init() {
+  document.querySelectorAll('input[type=number]').forEach(function(el) {
+    el.addEventListener('input', calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
